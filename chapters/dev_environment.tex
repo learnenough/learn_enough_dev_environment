@@ -252,3 +252,38 @@ Because using two spaces for indentation is a near-universal convention in Ruby,
 \end{center}
 \caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
 \end{figure}
+
+\section{Virtual machine} % (fold)
+\label{sec:virtual_machine}
+
+
+This tutorial covers the basics of the Unix command line, where \emph{Unix} refers to a \href{https://en.wikipedia.org/wiki/Unix}{family of operating systems} that includes Linux, Android, iOS (iPhone/iPad), and macOS\@.\footnote{In a fairly typical turn of events, the name \emph{Unix} started as a \href{http://www.catb.org/jargon/html/U/Unix.html}{pun} on a rival system called \emph{Multics}.} Unix systems serve most of the software on the World Wide Web, run most mobile and tablet devices, and power many of the world's desktop computers as well. As a result of Unix's central role in modern computing, this tutorial covers the Unix way of developing software. The main exception to Unix's dominance is Microsoft® Windows™, which is not part of the Unix tradition, but those who mostly develop using native Windows development tools will still benefit from learning the Unix command line. Among other things, at some point such users are likely to need to issue commands on a Unix server (e.g., via the ``secure shell'' command \kode{ssh}), at which point familiarity with Unix commands becomes essential. As a result, Windows users are strongly encouraged to run a free \emph{Linux virtual machine} (as described in Box~\ref{aside:virtual_machine}) in order to get the most out of this tutorial. Another good option is to use a cloud IDE\footnote{An IDE, or \emph{integrated development environment}, integrates several development tools (such as a command line and a text editor) into one application.} such as \href{http://c9.io/}{Cloud9}; to go this route, follow the ``\href{https://www.railstutorial.org/book/beginning#sec-development_environment}{Development environment}'' section in the \href{http://railstutorial.org/book}{\emph{Ruby on Rails Tutorial} book}.
+
+\emph{Note}: Important commands from this section are summarized in Table~\ref{table:man_echo}.
+
+\begin{aside}
+\label{aside:virtual_machine}
+\heading{Running a virtual machine}
+
+In order to complete this tutorial, Windows users should install a couple of free programs to run a \emph{virtual machine} (a simulation of a computer) that allows Windows to host a version of the Linux operating system. The steps appear as follows:
+
+\begin{enumerate}
+\item Install the right version of \href{https://www.virtualbox.org/}{VirtualBox} for your system (free).
+\item Download the \href{https://softcover-static.s3.amazonaws.com/LearnEnough-v.1.4.ova}{Learn Enough Virtual Machine} (large file).
+\item Once the download is complete, double-click the resulting ``OVA'' file and follow the instructions to install the Virtual Machine (VM).
+\item Double-click the VM itself and log in using the default user's password, which is ``\texttt{foobar!}''.
+\end{enumerate}
+(Getting all these steps to work is a good exercise in \emph{technical sophistication}, an idea we'll develop further starting in Section~\ref{sec:man_pages} (Box~\ref{aside:technical_sophistication}).) The result will be a Linux desktop environment (including a command-line terminal program) pre-configured for this tutorial, as shown in Figure~\ref{fig:virtual_machine}.
+
+
+In the longer run, I recommend switching to a Mac as soon as possible. You might have to save up a bit, as Macs are generally more expensive than Windows machines, but in most cases the increased productivity will quickly pay for the difference. (If you find yourself liking Linux, feel free to stick with it, but Macs are generally easier to use with a better user interface. Plus, you can always run Linux inside a VM, even on a Mac.)
+\end{aside}
+
+\begin{figure}
+\begin{center}
+\image{images/figures/virtual_machine.png}
+\end{center}
+\caption{A Linux virtual machine running inside a host OS.\label{fig:virtual_machine}}
+\end{figure}
+
+% section virtual_machine (end)
