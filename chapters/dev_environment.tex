@@ -1,19 +1,90 @@
-Setting up dev environment. For Learn Enough and Rails Tutorial. Four fundamental tools:
+One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. Putting all (or almost all) of the relevant material in one place is the purpose of \ledev, and is designed complement the \href{#}{main Learn Enough sequence} and the \rort.
+
+\section{Dev environment options} % (fold)
+\label{sec:dev_environment_options}
+
+Our focus in this tutorial is on installing or otherwise enabling the following four fundamental tools of software development:
 
 \begin{enumerate}
   \item Command line terminal (``shell'')
   \item Text editor
-  \item Git
-  \item Ruby and Node.js
+  \item Git (version control)
+  \item Programming languages (such as Ruby, Python, and Node.js)
 \end{enumerate}
 
-Three basic possibilities in descending order of difficulty:
+When setting up a development environment, there are three different possibilities we recommend, listed in increasing order of setup difficulty:
 
 \begin{enumerate}
-  \item Native OS (Linux, macOS, Windows)
-  \item Cloud Integrated Development Environment (IDE)
+  \item Cloud \href{https://en.wikipedia.org/wiki/Integrated_development_environment}{IDE}
   \item Virtual Machine (VM)
+  \item Native OS (macOS, Linux, Windows)
 \end{enumerate}
+
+If you're relatively inexperienced, we recommend starting with the cloud IDE, as it has the least difficult setup process, as discussed in Section~\ref{sec:cloud_ide}. The Virtual Machine option is also relatively straightforward in principle, though the relevant files are enormous and can lead to confusing errors when trying to install (Section~\ref{sec:vm}).
+
+While the IDE and VM options are great when you're just getting started, eventually it's important to be able to develop software on your native operating system (OS). Unfortunately, setting up a fully functional native development environment can be a challenging and frustrating process---likely leaving ample opportunity to exercise your technical sophistication (Box~\ref{aside:technical_sophistication})---but it is an essential rite of passage for every aspiring technical wizard.
+
+We'll discuss native OS setup for macOS, Linux, and Windows in Section~\ref{sec:native_os_setup}. As a warning, we'd like to note that the Windows section is currently anticlimactic, as it simply defers to the IDE and VM solutions, but please \href{mailto:support@learnenough.com}{let us know} if you'd like to help by contributing a truly native Windows solution.
+
+\begin{aside}
+\label{aside:technical_sophistication}
+\heading{Technical sophistication.}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{aside}
+
+% section dev_environment_options (end)
+
+
+
+\section{Cloud IDE}
+\label{sec:cloud_ide}
+
+***start here
+
+Considering various idiosyncratic customizations, there are probably as many development environments as there are Rails programmers. To avoid this complexity, the \emph{Ruby on Rails Tutorial} standardizes on the excellent cloud development environment \href{http://c9.io/}{Cloud9}. In particular, I am pleased to be partnering with Cloud9 to offer a free development environment specifically tailored to the needs of this tutorial. The resulting Rails Tutorial Cloud9 workspace comes pre-configured with most of the software needed for professional-grade Rails development, including Ruby, RubyGems, Git. (Indeed, the only big piece of software we'll install separately is Rails itself, and this is intentional (Section~\ref{sec:installing_rails}).)
+
+Although you are welcome to develop your application locally, setting up a Rails development environment can be challenging, so I recommend the cloud IDE for most readers. For those who want to go the local route, try the steps at \href{http://installrails.com/}{InstallRails.com}, and be prepared for a challenging exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).
+
+The cloud IDE includes the three essential components needed to develop web applications: a text editor, a filesystem navigator, and a command-line terminal (Figure~\ref{fig:ide_anatomy}). Among other features, the cloud IDE text editor supports the ``Find in Files'' global search that I consider essential to navigating any large Ruby or Rails project.\footnote{For example, to find the definition of a function called \kode{foo}, you can do a global search for ``def foo''.} Finally, even if you decide not to use the cloud IDE exclusively in real life (and I certainly recommend learning other tools as well), it provides an excellent introduction to the general capabilities of text editors and other development tools.
+
+\begin{figure}
+\begin{center}
+\image{images/figures/ide_anatomy.png}
+\end{center}
+\caption{The anatomy of the cloud IDE.\label{fig:ide_anatomy}}
+\end{figure}
+
+Here are the steps for getting started with the cloud development environment:
+\begin{enumerate}
+\item \href{https://c9.io/web/sign-up/free}{Sign up for a free account at Cloud9}.\footnote{c9.io/signup} In order to prevent abuse, Cloud9 requires a valid credit card for signup, but the Rails Tutorial workspace is 100\% free, and your card will not be charged.
+\item Click on ``Go to your Dashboard''.
+\item Select ``Create New Workspace''.
+\item As shown in Figure~\ref{fig:cloud9_new_workspace}, create a workspace called ``rails-tutorial'' (\emph{not} ``rails\_tutorial''), set it to ``Private to the people I invite'', and select the icon for the Rails Tutorial (\emph{not} the icon for Ruby on Rails).
+\item Click ``Create workspace''.
+\item After Cloud9 has finished provisioning the workspace, it should start automatically.
+\end{enumerate}
+Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then selecting ``Code Editor (Ace)'' to edit the ``Soft Tabs'' setting. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
+
+\begin{figure}
+\begin{center}
+\image{images/figures/cloud9_new_workspace_4th_ed.png}
+\end{center}
+\caption{Creating a new workspace at Cloud9.\label{fig:cloud9_new_workspace}}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\image{images/figures/cloud9_two_spaces.png}
+\end{center}
+\caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
+\end{figure}
 
 Talk about each of these. If you're a total beginner, Cloud IDE or VM is probably best
 
@@ -212,47 +283,6 @@ $ source ~/.bash_profile
 
 
 
-    \section{Development environment}
-    \label{sec:development_environment}
-
-Considering various idiosyncratic customizations, there are probably as many development environments as there are Rails programmers. To avoid this complexity, the \emph{Ruby on Rails Tutorial} standardizes on the excellent cloud development environment \href{http://c9.io/}{Cloud9}. In particular, I am pleased to be partnering with Cloud9 to offer a free development environment specifically tailored to the needs of this tutorial. The resulting Rails Tutorial Cloud9 workspace comes pre-configured with most of the software needed for professional-grade Rails development, including Ruby, RubyGems, Git. (Indeed, the only big piece of software we'll install separately is Rails itself, and this is intentional (Section~\ref{sec:installing_rails}).)
-
-Although you are welcome to develop your application locally, setting up a Rails development environment can be challenging, so I recommend the cloud IDE for most readers. For those who want to go the local route, try the steps at \href{http://installrails.com/}{InstallRails.com}, and be prepared for a challenging exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).
-
-The cloud IDE includes the three essential components needed to develop web applications: a text editor, a filesystem navigator, and a command-line terminal (Figure~\ref{fig:ide_anatomy}). Among other features, the cloud IDE text editor supports the ``Find in Files'' global search that I consider essential to navigating any large Ruby or Rails project.\footnote{For example, to find the definition of a function called \kode{foo}, you can do a global search for ``def foo''.} Finally, even if you decide not to use the cloud IDE exclusively in real life (and I certainly recommend learning other tools as well), it provides an excellent introduction to the general capabilities of text editors and other development tools.
-
-\begin{figure}
-\begin{center}
-\image{images/figures/ide_anatomy.png}
-\end{center}
-\caption{The anatomy of the cloud IDE.\label{fig:ide_anatomy}}
-\end{figure}
-
-Here are the steps for getting started with the cloud development environment:
-\begin{enumerate}
-\item \href{https://c9.io/web/sign-up/free}{Sign up for a free account at Cloud9}.\footnote{c9.io/signup} In order to prevent abuse, Cloud9 requires a valid credit card for signup, but the Rails Tutorial workspace is 100\% free, and your card will not be charged.
-\item Click on ``Go to your Dashboard''.
-\item Select ``Create New Workspace''.
-\item As shown in Figure~\ref{fig:cloud9_new_workspace}, create a workspace called ``rails-tutorial'' (\emph{not} ``rails\_tutorial''), set it to ``Private to the people I invite'', and select the icon for the Rails Tutorial (\emph{not} the icon for Ruby on Rails).
-\item Click ``Create workspace''.
-\item After Cloud9 has finished provisioning the workspace, it should start automatically.
-\end{enumerate}
-Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then selecting ``Code Editor (Ace)'' to edit the ``Soft Tabs'' setting. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
-
-\begin{figure}
-\begin{center}
-\image{images/figures/cloud9_new_workspace_4th_ed.png}
-\end{center}
-\caption{Creating a new workspace at Cloud9.\label{fig:cloud9_new_workspace}}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\image{images/figures/cloud9_two_spaces.png}
-\end{center}
-\caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
-\end{figure}
-
 \section{Virtual machine} % (fold)
 \label{sec:virtual_machine}
 
@@ -287,3 +317,31 @@ In the longer run, I recommend switching to a Mac as soon as possible. You might
 \end{figure}
 
 % section virtual_machine (end)
+
+\section{Native OS setup} % (fold)
+\label{sec:native_os_setup}
+
+\subsection{Installation overlap} % (fold)
+\label{sec:installation_overlap}
+
+
+
+% subsection installation_overlap (end)
+
+\subsection{macOS} % (fold)
+\label{sec:macos}
+
+% subsection macos (end)
+
+\subsection{Linux} % (fold)
+\label{sec:linux}
+
+% subsection linux (end)
+
+\subsection{Windows} % (fold)
+\label{sec:windows}
+
+% subsection windows (end)
+
+
+% section native_os_setup (end)
