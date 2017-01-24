@@ -20,7 +20,7 @@ When setting up a development environment, there are three different possibiliti
   \item Native OS (macOS, Linux, Windows)
 \end{enumerate}
 
-If you're relatively inexperienced, we recommend starting with the cloud IDE, as it has the least difficult setup process, as discussed in Section~\ref{sec:cloud_ide}. The Virtual Machine option is also relatively straightforward in principle, though the relevant files are enormous and can lead to confusing errors when trying to install (Section~\ref{sec:vm}).
+If you're relatively inexperienced, we recommend starting with the cloud IDE, as it has the least difficult setup process, as discussed in Section~\ref{sec:cloud_ide}. The Virtual Machine option is also relatively straightforward in principle, though the relevant files are enormous and can lead to confusing errors when trying to install (Section~\ref{sec:virtual_machine}).
 
 While the IDE and VM options are great when you're just getting started, eventually it's important to be able to develop software on your native operating system (OS). Unfortunately, setting up a fully functional native development environment can be a challenging and frustrating process---likely leaving ample opportunity to exercise your technical sophistication (Box~\ref{aside:technical_sophistication})---but it is an essential rite of passage for every aspiring technical wizard.
 
@@ -41,18 +41,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 % section dev_environment_options (end)
 
-
-
 \section{Cloud IDE}
 \label{sec:cloud_ide}
 
-***start here
+The easiest setup option is a \emph{cloud IDE}, which is an integrated development environment that you access on a remote web server using a web browser of your choice.
 
-Considering various idiosyncratic customizations, there are probably as many development environments as there are Rails programmers. To avoid this complexity, the \emph{Ruby on Rails Tutorial} standardizes on the excellent cloud development environment \href{http://c9.io/}{Cloud9}. In particular, I am pleased to be partnering with Cloud9 to offer a free development environment specifically tailored to the needs of this tutorial. The resulting Rails Tutorial Cloud9 workspace comes pre-configured with most of the software needed for professional-grade Rails development, including Ruby, RubyGems, Git. (Indeed, the only big piece of software we'll install separately is Rails itself, and this is intentional (Section~\ref{sec:installing_rails}).)
-
-Although you are welcome to develop your application locally, setting up a Rails development environment can be challenging, so I recommend the cloud IDE for most readers. For those who want to go the local route, try the steps at \href{http://installrails.com/}{InstallRails.com}, and be prepared for a challenging exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).
-
-The cloud IDE includes the three essential components needed to develop web applications: a text editor, a filesystem navigator, and a command-line terminal (Figure~\ref{fig:ide_anatomy}). Among other features, the cloud IDE text editor supports the ``Find in Files'' global search that I consider essential to navigating any large Ruby or Rails project.\footnote{For example, to find the definition of a function called \kode{foo}, you can do a global search for ``def foo''.} Finally, even if you decide not to use the cloud IDE exclusively in real life (and I certainly recommend learning other tools as well), it provides an excellent introduction to the general capabilities of text editors and other development tools.
+As part of developing the \rort, we partnered with \href{http://c9.io/}{Cloud9} to offer a workspace appropriate for Ruby on Rails web development, which includes all the other elements mentioned in Section~\ref{sec:dev_environment_options} as a matter of course. In particular, Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}). Because each Cloud9 workspace provides a full working Linux system, it also automatically includes things like Git, Ruby, Python, and Node.js.
 
 \begin{figure}
 \begin{center}
@@ -61,16 +55,17 @@ The cloud IDE includes the three essential components needed to develop web appl
 \caption{The anatomy of the cloud IDE.\label{fig:ide_anatomy}}
 \end{figure}
 
-Here are the steps for getting started with the cloud development environment:
+If you decide to go the cloud IDE route, you can get started as follows:
 \begin{enumerate}
 \item \href{https://c9.io/web/sign-up/free}{Sign up for a free account at Cloud9}.\footnote{c9.io/signup} In order to prevent abuse, Cloud9 requires a valid credit card for signup, but the Rails Tutorial workspace is 100\% free, and your card will not be charged.
 \item Click on ``Go to your Dashboard''.
 \item Select ``Create New Workspace''.
-\item As shown in Figure~\ref{fig:cloud9_new_workspace}, create a workspace called ``rails-tutorial'' (\emph{not} ``rails\_tutorial''), set it to ``Private to the people I invite'', and select the icon for the Rails Tutorial (\emph{not} the icon for Ruby on Rails).
+\item Create a workspace with a name of your choice. We recommend using ``rails-tutorial'', but other names would work as well. One thing to avoid is using underscores, which can cause problems when trying to access apps under development (i.e., don't use the name ``rails\_tutorial''). We also recommend using the Rails Tutorial workspace instead of the one for Ruby on Rails. This option gives you more flexibility if you decide to install a particular version of Rails down the line.
 \item Click ``Create workspace''.
 \item After Cloud9 has finished provisioning the workspace, it should start automatically.
 \end{enumerate}
-Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then selecting ``Code Editor (Ace)'' to edit the ``Soft Tabs'' setting. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
+
+If you plan to do any Ruby development, we also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then selecting ``Code Editor (Ace)'' to edit the ``Soft Tabs'' setting. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
 
 \begin{figure}
 \begin{center}
@@ -86,52 +81,48 @@ Because using two spaces for indentation is a near-universal convention in Ruby,
 \caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
 \end{figure}
 
-Talk about each of these. If you're a total beginner, Cloud IDE or VM is probably best
+At this point, you're done! Although Internet access is required to use Cloud9, which can be inconvenient when bandwidth options are limited, there is no alternative that combines so much power with such an easy setup.
 
-Native possibilities are endless, no way we can cover all the permutations. Will focus on macOS, because that's what we use. Would be faking if we mentioned anything else, but open to suggestions for dev environment on Windows.
+\section{Virtual machine} % (fold)
+\label{sec:virtual_machine}
 
-Techsoph a must in any case. Many suggestions here will be ``meta''
+A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In other words, you can run a full Linux system right inside of macOS or Windows.
 
+The virtual option we recommend is one we developed as part of \lecl, which involves installing a Linux virtual machine on your native system. The steps appear as follows:
 
-\section{Development environment setup}
-\label{sec:jekyll-intro}
+\begin{enumerate}
+\item Install the right version of \href{https://www.virtualbox.org/}{VirtualBox} for your system (free).
+\item Download the \href{https://softcover-static.s3.amazonaws.com/LearnEnough-v.1.4.ova}{Learn Enough Virtual Machine} (large file).
+\item Once the download is complete, double-click the resulting ``OVA'' file and follow the instructions to install the Virtual Machine (VM).
+\item Double-click the VM itself and log in using the default user's password, which is ``\texttt{foobar!}''.
+\end{enumerate}
+(Getting all these steps to work is a good exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).)
 
-You will be using a framework called Jekyll to handle the processing and compiling of your pages---bringing multiple pieces of code together to build a complete site out of the parts.
+The result of the steps above is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, Ruby, Python, and Node.js. The interface might not be as familiar, fast, or polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
 
-\begin{figure}[H]
+\begin{figure}
 \begin{center}
-\image{images/figures/jekyll.jpg}
+\image{images/figures/virtual_machine.png}
 \end{center}
-\caption{Not Jekyll and Hyde...rather Jekyll the static site generator!\label{fig:jekyll}}
-
+\caption{A Linux virtual machine running inside a host OS.\label{fig:virtual_machine}}
 \end{figure}
 
-Jekyll was created using the programming language Ruby, and is what is known as a Ruby gem. You can think of Ruby gems (or `gems') as plug-ins that extend the basic Ruby application that comes pre-installed now with macOS\@. Each gem also comes with packaged instructions that tell your computer how to install other third party gems that are required as dependencies to make the plug-in work.
+% section virtual_machine (end)
 
-+++add material on C9?
 
-Developers like systems like Jekyll because they remove the need to repeat things and because they allow us to manage the content for websites in a way that resembles writing code. Specifically, Jekyll is great because by using it:
+\section{Native OS setup} % (fold)
+\label{sec:native_os_setup}
+
+\subsection{macOS} % (fold)
+\label{sec:macos}
 
 \begin{itemize}
-\item Can write content in markdown in your text-editor of choice
-\item Write and preview your content on your site locally in your dev environment
-\item Publish changes via git
-\item Your site is on a static web-server and pretty immune to traffic
-\item Host your site freely on GitHub Pages
-\item No database management
+  \item \href{https://www.iterm2.com/downloads.html}{iTerm}
+  \item \href{https://atom.io/}{Atom} editor
 \end{itemize}
 
-Gems are designed to be installed and work with whatever version of Ruby you have locally. If you were to not follow this guide and just try and install Jekyll with no other setup, you would install the gem and its dependencies in a way that directly ties them to the macOS system version of Ruby. That means that if you ever need to work on a project that requires a different version of Ruby, or if Apple changes the system Ruby, you will have to uninstall the gems that you installed, install a Ruby version manager, and then reinstall the gems.
 
-Or more than likely you'd eventually have waste a significant amount of time trying to decipher terminal error messages that can be less than helpful. By properly setting up a Ruby version manager now you ensure that the package of gems that you install will be safely tied to a new copy of Ruby that you control, and it will protect the gems from possible conflicts in the future.
-
-\subsection{Jekyll install}
-
-\label{sec:jekyll-install}
-
-We are going to go through some of these steps pretty quickly as some steps are things that you done in previous tutorials, like Learn Enough Command Line and Learn Enough Text Editor, and others we'll move quickly past because getting deep into the how and why of the inner workings of Jekyll just isn't important at this point in your progress as a developer. This isn't Learn Enough Jekyll after all!
-
-\subsection{Installing Xcode command line tools}
+\subsubsection{Xcode command line tools}
 
 \label{sec:shiny_xcode}
 
@@ -150,13 +141,15 @@ $ xcode-select --install
 
 You'll be prompted by macOS to confirm that you want to install Xcode, do that and that's it!
 
-\subsection{Installing the Homebrew package manager}
 
+\subsubsection{Homebrew}
 \label{sec:homebrew}
 
 Homebrew is a command line based package manager for macOS\@. If the phrase ``package manager'' isn't familiar to you, you can think of it as an application that works like an App Store---only it is filled with free open-source software.
 
 If by chance you have played around with Linux in the past then you might have used a package manager in the past to install applications and utilities. Even though macOS is built on a similar foundation as Linux, Apple decided not to include a built in package manager to let you easily install software. Homebrew is one of many managers that is available to the open-source community, but over time it has become one of the most popular options in the Ruby development world.
+
+bootstrap with system ruby
 
 Installation of Homebrew is simple. First you are going to need to run a command from the terminal that is going to connect to the Homebrew repository, download it, and install it:
 
@@ -178,11 +171,40 @@ $ brew doctor
 \end{code}
 The \kode{brew doctor} command starts a process that ensures that all of the directories and permissions needed by Homebrew to manage local files are corrected set up. If you have any problems at this point, you'll need to refer to the \href{https://github.com/Homebrew/homebrew/wiki/troubleshooting}{Homebrew troubleshooting wiki} (you really shouldn't though unless you've been making changes to random system folders and permissions).
 
-\subsection{Installing rbenv, a Ruby environment manager}
+\subsubsection{Git} % (fold)
+\label{sec:git}
 
+Should come with Xcode command-line tools. Can check
+
+%= lang:console
+\begin{code}
+$ which git
+\end{code}
+
+If not there, can install with Homebrew:
+
+%= lang:console
+\begin{code}
+$ brew install git
+\end{code}
+
+% subsubsection git (end)
+
+\subsubsection{Node} % (fold)
+\label{sec:node}
+
+%= lang:console
+\begin{code}
+$ brew install nodejs
+\end{code}
+
+% subsubsection node (end)
+
+
+\subsubsection{Ruby Environment (rbenv)}
 \label{sec:rbenv}
 
-Now we are starting to get to the core of the development environment! Rbenv is a utility that will run on your computer to manage any versions of Ruby you install and it will amke sure that the gems (plug-ins) you install are placed in the right spot for Ruby to find. The rbenv system is modular and allows you to specify a different version of Ruby (and the associated gems) for different project repositories.
+Now we are starting to get to the core of the development environment! Rbenv is a utility that will run on your computer to manage any versions of Ruby you install and it will make sure that the gems (plug-ins) you install are placed in the right spot for Ruby to find. The rbenv system is modular and allows you to specify a different version of Ruby (and the associated gems) for different project repositories.
 
 The full level of functionality isn't really needed for this project, but if you continue to do web development you will find that you need to lock certain projects to certain versions of Ruby because of dependencies that will only work on a specific version of Ruby. That could cause you to be unable to use your local development environment without going through some annoying updating and reconfiguring of individual applications.
 
@@ -228,8 +250,7 @@ $ source ~/.bash_profile
 \end{code}
 You now have a Ruby environment manager that is ready to handle custom versions of Ruby and keep track of any gems that you install for each version.
 
-\subsection{Installing a new Ruby version}
-
+\subsubsection{New Ruby version}
 \label{sec:install_ruby}
 
 Now that your environment manager is set up, let's give it a non-system version of Ruby to manage. The installation process is handled entirely by rbenv, so all you have to do is instruct it as to which version you'd like on your system by passing along the exact Ruby version and patch version number like this:
@@ -258,90 +279,34 @@ For this guide, we are also going to make the 2.1.3 version the global default s
 $ rbenv global 2.1.3
 \end{code}
 
-\subsection{Installing the Github-pages gem}
-
-\label{sec:gem}
-
-The last piece of your dev environment setup is to install the actual framework gems that will allow you to start developing your application.
-
-%= lang:console
-\begin{code}
-$ gem install github-pages --no-ri --no-rdoc
-\end{code}
-
-You'll notice that the installation command has a funny ending. That \kode{--no-ri --no-rdoc} tells the Ruby installer to ignore downloading the gem documentation. If you are interested in the details of how the gem works, feel free to not include the flags, but those documents do tend to increase the download's size and installation time (and you'll probably never read them).
-
-The \emph{github-pages} gem is actually a big package of a bunch of gems that includes Jekyll, plus all of its dependencies, and it is created by GitHub to make using Github Pages standardized and in general a whole lot easier.
-
-You will see the terminal display the download and installation process for all of the gems and dependencies. When the installation has finished, you will need to let the terminal know that there are new commands available to use by resourcing your \kode{bash\_profile} using the command you used before:
-
-%= lang:console
-\begin{code}
-$ source ~/.bash_profile
-\end{code}
-
-
-
-
-\section{Virtual machine} % (fold)
-\label{sec:virtual_machine}
-
-
-This tutorial covers the basics of the Unix command line, where \emph{Unix} refers to a \href{https://en.wikipedia.org/wiki/Unix}{family of operating systems} that includes Linux, Android, iOS (iPhone/iPad), and macOS\@.\footnote{In a fairly typical turn of events, the name \emph{Unix} started as a \href{http://www.catb.org/jargon/html/U/Unix.html}{pun} on a rival system called \emph{Multics}.} Unix systems serve most of the software on the World Wide Web, run most mobile and tablet devices, and power many of the world's desktop computers as well. As a result of Unix's central role in modern computing, this tutorial covers the Unix way of developing software. The main exception to Unix's dominance is Microsoft® Windows™, which is not part of the Unix tradition, but those who mostly develop using native Windows development tools will still benefit from learning the Unix command line. Among other things, at some point such users are likely to need to issue commands on a Unix server (e.g., via the ``secure shell'' command \kode{ssh}), at which point familiarity with Unix commands becomes essential. As a result, Windows users are strongly encouraged to run a free \emph{Linux virtual machine} (as described in Box~\ref{aside:virtual_machine}) in order to get the most out of this tutorial. Another good option is to use a cloud IDE\footnote{An IDE, or \emph{integrated development environment}, integrates several development tools (such as a command line and a text editor) into one application.} such as \href{http://c9.io/}{Cloud9}; to go this route, follow the ``\href{https://www.railstutorial.org/book/beginning#sec-development_environment}{Development environment}'' section in the \href{http://railstutorial.org/book}{\emph{Ruby on Rails Tutorial} book}.
-
-\emph{Note}: Important commands from this section are summarized in Table~\ref{table:man_echo}.
-
-\begin{aside}
-\label{aside:virtual_machine}
-\heading{Running a virtual machine}
-
-In order to complete this tutorial, Windows users should install a couple of free programs to run a \emph{virtual machine} (a simulation of a computer) that allows Windows to host a version of the Linux operating system. The steps appear as follows:
-
-\begin{enumerate}
-\item Install the right version of \href{https://www.virtualbox.org/}{VirtualBox} for your system (free).
-\item Download the \href{https://softcover-static.s3.amazonaws.com/LearnEnough-v.1.4.ova}{Learn Enough Virtual Machine} (large file).
-\item Once the download is complete, double-click the resulting ``OVA'' file and follow the instructions to install the Virtual Machine (VM).
-\item Double-click the VM itself and log in using the default user's password, which is ``\texttt{foobar!}''.
-\end{enumerate}
-(Getting all these steps to work is a good exercise in \emph{technical sophistication}, an idea we'll develop further starting in Section~\ref{sec:man_pages} (Box~\ref{aside:technical_sophistication}).) The result will be a Linux desktop environment (including a command-line terminal program) pre-configured for this tutorial, as shown in Figure~\ref{fig:virtual_machine}.
-
-
-In the longer run, I recommend switching to a Mac as soon as possible. You might have to save up a bit, as Macs are generally more expensive than Windows machines, but in most cases the increased productivity will quickly pay for the difference. (If you find yourself liking Linux, feel free to stick with it, but Macs are generally easier to use with a better user interface. Plus, you can always run Linux inside a VM, even on a Mac.)
-\end{aside}
-
-\begin{figure}
-\begin{center}
-\image{images/figures/virtual_machine.png}
-\end{center}
-\caption{A Linux virtual machine running inside a host OS.\label{fig:virtual_machine}}
-\end{figure}
-
-% section virtual_machine (end)
-
-\section{Native OS setup} % (fold)
-\label{sec:native_os_setup}
-
-\subsection{Installation overlap} % (fold)
-\label{sec:installation_overlap}
-
-
-
-% subsection installation_overlap (end)
-
-\subsection{macOS} % (fold)
-\label{sec:macos}
 
 % subsection macos (end)
 
 \subsection{Linux} % (fold)
 \label{sec:linux}
 
+Higher level of tech soph assumed
+
+Already includes terminal, \href{https://git-scm.com/download/linux}{Git installation}
+
+Atom
+
+Follow \href{https://github.com/rbenv/rbenv#installation}{rbenv installation} instructions from the rbenv website. It includes more permutations
+
 % subsection linux (end)
 
 \subsection{Windows} % (fold)
 \label{sec:windows}
 
+Use Cloud9, VM. Open to suggestions!
+
 % subsection windows (end)
 
-
 % section native_os_setup (end)
+
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+Enough to be dangerous. Ready to get going on other things.
+
+% section conclusion (end)
