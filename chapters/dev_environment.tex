@@ -1,4 +1,4 @@
-One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev is designed complement the \href{#}{main Learn Enough sequence} and the \rort\ by putting all (or almost all) of the relevant material in one place.
+One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev is designed to complement the \href{#}{main Learn Enough sequence} and the \rort\ by putting all (or almost all) of the relevant material in one place.
 
 \section{Dev environment options} % (fold)
 \label{sec:dev_environment_options}
@@ -344,20 +344,25 @@ For future work, you may want to use specific versions of Ruby on a per-project 
 \subsection{Linux} % (fold)
 \label{sec:linux}
 
-Higher level of tech soph assumed
+Because of Linux's highly technical origins, Linux systems typically come well-equipped with developer tools. As a result, setting up a native Linux OS as a dev environment is especially simple.
 
-Already includes terminal, \href{https://git-scm.com/download/linux}{Git installation}
+Every major Linux distribution ships with a terminal program, a text editor, and Git. There are only three major steps we recommend in addition to the defaults:
+\begin{enumerate}
+  \item \href{https://atom.io/}{Download and install Atom} if you don't already have a favorite editor.
+  \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv and ruby-build installation instructions} from the rbenv website.
+  \item Install Ruby as shown in Listing~\ref{code:ruby-install}.
+\end{enumerate}
 
-Atom
-
-Follow \href{https://github.com/rbenv/rbenv#installation}{rbenv installation} instructions from the rbenv website. It includes more permutations
+At this point, you should be good to go!
 
 % subsection linux (end)
 
 \subsection{Windows} % (fold)
 \label{sec:windows}
 
-Use Cloud9, VM. Open to suggestions!
+Finally, and anti-climactically, we have native (non-)instructions for Microsoft Windows. Because none of your humble authors \href{http://blog.dictionary.com/none/}{are} well-acquainted with Windows software development, we did a Twitter survey, and found that the typical response was ``Use a Linux VM\@.'' Sigh.
+
+So, for now we officially recommend either a cloud IDE (Section~\ref{sec:cloud_ide}) or a Linux VM (Section~\ref{sec:virtual_machine}) if you're using Windows. We're definitely interested in a more natively appropriate solution, though, so please \href{mailto:support@learnenough.com}{let us know} if you'd like to volunteer suggestions. Thanks!
 
 % subsection windows (end)
 
@@ -366,6 +371,8 @@ Use Cloud9, VM. Open to suggestions!
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-Enough to be dangerous. Ready to get going on other things.
+If you've made it this far---and especially if you completed a native OS setup in Section~\ref{sec:native_os_setup}---you've now learned enough development environment to be \emph{dangerous}. You're ready to move on to complete challenging tutorials like \lecss, \ler, and the \rort. Good luck!
 
 % section conclusion (end)
+
+\noindent {\small \ledev. Copyright © 2017 by Michael Hartl, Lee Donahoe, and Nick Merwin.}
