@@ -99,7 +99,14 @@ At this point, you're done! Although Internet access is required to use Cloud9 (
 \section{Virtual machine} % (fold)
 \label{sec:virtual_machine}
 
-A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In other words, you can run a full Linux system right inside of macOS or Windows.
+A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In the case of the Learn Enough VM, you can run a full Linux system right inside of macOS or Windows (or even Linux! \href{https://en.wikipedia.org/wiki/Turtles_all_the_way_down}{It's turtles all the way down} (Figure~\ref{fig:turtles}).\footnote{Image retrieved from https://upload.wikimedia.org/wikipedia/commons/4/47/River_terrapin.jpg on 2017-01-24 and is in the public domain.}).
+
+\begin{figure}
+\begin{center}
+\image{images/figures/turtles.jpg}
+\end{center}
+\caption{It's turtles all the way down.\label{fig:turtles}}
+\end{figure}
 
 The virtual option we recommend is one we developed as part of \lecl, which involves installing a Linux virtual machine on your native system. The steps appear as follows:
 
@@ -111,7 +118,7 @@ The virtual option we recommend is one we developed as part of \lecl, which invo
 \end{enumerate}
 (Getting all these steps to work is a good exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).)
 
-The result of the steps above is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, Ruby, Python, and Node.js. The interface might not be as familiar, fast, or polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
+The result of the steps above is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, and Ruby. The interface might not be as familiar, fast, or as polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
 
 \begin{figure}
 \begin{center}
@@ -126,18 +133,36 @@ The result of the steps above is a Linux desktop environment (Figure~\ref{fig:vi
 \section{Native OS setup} % (fold)
 \label{sec:native_os_setup}
 
+As mentioned in Section~\ref{sec:dev_environment_options}, setting up your native operating system as a development environment can be challenging, but is an important step to take once you've reached a certain level of technical sophistication. The cloud IDE or virtual machine options are great places to start, but eventually you have to grab the bull by the horns and bend your native system to your will (Figure~\ref{fig:grab_bull_by_horns}).\footnote{Image retrieved from https://www.flickr.com/photos/mikey_loves_bcn/4354275361 on 2017-01-24. Copyright © 2010 by \href{https://www.flickr.com/photos/mikey_loves_bcn/}{Mikey V} and used under the terms of the \ccbync\ license.}
+
+\begin{figure}
+\begin{center}
+\image{images/figures/grab_bull_by_horns.jpg}
+\end{center}
+\caption{Sometimes you have to grab the bull by the horns.\label{fig:grab_bull_by_horns}}
+\end{figure}
+
 \subsection{macOS} % (fold)
 \label{sec:macos}
 
-\begin{itemize}
-  \item \href{https://www.iterm2.com/downloads.html}{iTerm}
-  \item \href{https://atom.io/}{Atom} editor
-\end{itemize}
+The native Macintosh operating system, formerly called Mac OS~X and now known as \emph{macOS}, has a polished graphical user interface (GUI) while also being based on Unix. As a result, macOS is ideally suited for use as a  programmer's development environment.
+
+The steps in this section constitute more than just a minimal system; you can actually get away with doing a lot less, but your three authors all use macOS, and we feel it's important not to shortchange you with a half-baked setup.
+
+\subsubsection{Terminal and editor} % (fold)
+\label{sec:terminal_and_editor}
+
+Although macOS comes with a native terminal program, we recommend you \href{\href{https://www.iterm2.com/downloads.html}{iTerm}}{install iTerm}, which includes \href{https://www.iterm2.com/features.html}{various enhancement} that make it a better choice for developers and other technical users.
+
+We also recommend installing a programmer's text editor. There are lots of choices, but the \href{https://atom.io/}{Atom editor} (covered in \lete) is a good place to start.
+
+% subsubsection terminal_and_editor (end)
 
 
 \subsubsection{Xcode command line tools}
-
 \label{sec:shiny_xcode}
+
+***start here
 
 Xcode is a large suite of development tools and code libraries created by Apple, and it is a requirement for doing the kind of development covered by this tutorial. Thankfully, Apple has recently made Xcode incredibly quick and easy to install---it used to require a 4+ GB download of installation source files.
 
