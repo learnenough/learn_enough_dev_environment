@@ -153,7 +153,7 @@ The steps in this section constitute more than just a minimal system; you can ac
 \subsubsection{Terminal and editor} % (fold)
 \label{sec:terminal_and_editor}
 
-Although macOS comes with a native terminal program, we recommend installing \href{https://www.iterm2.com/downloads.html}{iTerm}, which includes \href{https://www.iterm2.com/features.html}{various enhancements} that make it a better choice than the default for developers and other technical users.
+Although macOS comes with a native terminal program, we recommend installing \href{https://www.iterm2.com/downloads.html}{iTerm}, which includes \href{https://www.iterm2.com/features.html}{various enhancements} that make it better than the default for developers and other technical users.
 
 We also recommend installing a programmer's text editor. There are lots of excellent choices, but the \href{https://atom.io/}{Atom editor} (covered in \lete) is a good place to start if you don't already have a favorite.
 
@@ -210,34 +210,15 @@ $ brew doctor
 
 \noindent If you have any problems at this point, you'll need to refer to the \href{https://github.com/Homebrew/homebrew/wiki/troubleshooting}{Homebrew troubleshooting wiki}, but you really shouldn't unless you've been making changes to random system folders and permissions.
 
-\subsubsection{Git} % (fold)
-\label{sec:git}
-
-A recent version of the Git version control system should come automatically with Xcode command-line tools installed in Section~\ref{sec:shiny_xcode}. You can verify this using the \kode{which} command:
-
-%= lang:console
-\begin{code}
-$ which git
-\end{code}
-
-\noindent If the result of this is blank, it means Git isn't installed, and you can install it with Homebrew:
-
-%= lang:console
-\begin{code}
-$ brew install git    # only if `which git` is blank
-\end{code}
-
-% subsubsection git (end)
-
 
 \subsubsection{Ruby Environment (rbenv)}
 \label{sec:rbenv}
 
-Now that Homebrew and rbenv are installed, it's time to install a custom Ruby suitable for software (especially web) development. Although macOS comes with Ruby preinstalled (as we saw in Section~\ref{sec:homebrew}), as developers we don't have any control over the exact version, and macOS doesn't natively allow us to use multiple versions of Ruby in parallel.
+As we've just seen, macOS comes with Ruby preinstalled, but we don't have any control over the exact version, and macOS doesn't natively allow us to use multiple versions of Ruby in parallel. To give us more flexibility with our development environment, we'll install \emph{rbenv}, which is a utility that manages different Ruby versions and makes sure that Ruby software packages (called \emph{gems}) get placed in the right spot for Ruby to find.
 
-To give us more flexibility with our development environment, we'll install \emph{rbenv}, which is a utility that manages different Ruby versions and makes sure that Ruby software packages (called \emph{gems}) (plug-ins) get placed in the right spot for Ruby to find. Using rbenv together with the associated \emph{ruby-build} project also allows us to specify a different version of Ruby (and the associated gems) for different project repositories.\footnote{The \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{\emph{virtualenv}} utility accomplishes a similar task for Python projects.} This is a common task in software development. For example, an older version of a program might need an older version of Ruby to run correctly. Using rbenv means we can support such an older program while still running a more up-to-date version of Ruby for our other projects.
+Using rbenv together with the associated \emph{ruby-build} command also allows us to specify a different version of Ruby for different project repositories, which is a common task in software development.\footnote{E.g., the \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{\emph{virtualenv}} utility accomplishes a similar task for Python projects.} For example, an older version of a program might need an older version of Ruby to run correctly. Using rbenv means we can support such an older program while still running a more up-to-date version of Ruby for our other projects.
 
-Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build, as shown in Listing~\ref{code:rbenv}.
+Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build in one step using \kode{brew install}, as shown in Listing~\ref{code:rbenv}.
 
 \begin{codelisting}
 \label{code:rbenv}
@@ -248,12 +229,12 @@ $ brew install rbenv ruby-build
 \end{code}
 \end{codelisting}
 
-After the download and installation from Listing~\ref{code:rbenv} finishes, we need to get rbenv up and running using \kode{rbenv init}, as shown in Listing~\ref{code:rbenv_init}.
+After the installation from Listing~\ref{code:rbenv} finishes, we need to get rbenv up and running using \kode{rbenv init}, as shown in Listing~\ref{code:rbenv_init}.
 
 \begin{codelisting}
 \label{code:rbenv_init}
 \codecaption{Initializing rbenv.}
-%= lang:console
+%= lang:console, options: "hl_lines": [1]
 \begin{code}
 $ rbenv init
 # Load rbenv automatically by appending
@@ -338,6 +319,25 @@ $ rbenv global 2.3.3
 \noindent At this point, it's probably a good idea to restart your shell program to make sure all the settings are properly updated.
 
 For future work, you may want to use specific versions of Ruby on a per-project basis, which can be done by creating a file called \kode{.ruby-version} in the project's root directory and including the version of Ruby to be used. (You'll also have to install it, of course, using \kode{rbenv install <version number>}.) See the \href{https://github.com/rbenv/rbenv}{rbenv documentation} for more information.
+
+\subsubsection{Git} % (fold)
+\label{sec:git}
+
+A recent version of the Git version control system should come automatically with the Xcode command-line tools installed in Section~\ref{sec:shiny_xcode}, which you can verify this using the \kode{which} command:
+
+%= lang:console
+\begin{code}
+$ which git
+\end{code}
+
+\noindent If the result of this is blank, it means Git isn't installed, and you can install it with Homebrew:
+
+%= lang:console
+\begin{code}
+$ brew install git    # only if `which git` is blank
+\end{code}
+
+% subsubsection git (end)
 
 % subsection macos (end)
 
