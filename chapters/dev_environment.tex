@@ -1,6 +1,6 @@
-One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{http://www.learnenough.com/tutorials}{main Learn Enough sequence} and the \rort\ by putting all (or almost all) of the relevant material in one place.
+One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{http://www.learnenough.com/tutorials}{main Learn Enough sequence} and the \rort\ by putting all of the relevant material in one place.
 
-If you end up using the options shown in Section~\ref{sec:cloud_ide} or Section~\ref{sec:virtual_machine}, there is no minimum prerequisite for this tutorial. Otherwise, you should have a basic familiarity with the Unix command line (as covered in \lecl). A familiarity with text editors (as covered in \lete) is recommended but not strictly required.
+This tutorial covers several options for setting up a dev environment, aimed at readers of varying levels of experience and sophistication. If you end up using one of the options shown in Section~\ref{sec:cloud_ide} or Section~\ref{sec:virtual_machine}, there is no minimum prerequisite for this tutorial. If you want to follow the more challenging setup in Section~\ref{sec:native_os_setup}---which we recommend most readers tackle at some point---you should have a basic familiarity with the Unix command line (as covered in \lecl), and a familiarity with text editors and system configration (as covered in \lete) is recommended.
 
 \section{Dev environment options} % (fold)
 \label{sec:dev_environment_options}
@@ -34,7 +34,7 @@ If you're relatively inexperienced, we recommend starting with the cloud IDE (Se
 \subsubsection{Native system} % (fold)
 \label{sec:native_system}
 
-While the IDE and VM options are great when you're just getting started, eventually it's important to be able to develop software on your native operating system (OS)\@. Unfortunately, setting up a fully functional native development environment can be a challenging and frustrating process\footnote{This is why it's such a bad idea to include a native dev setup at the beginning of a book like the \rort. It's better to get started with the core material first, and tackle the native dev environment setup later. The switch over to Cloud9 in the third edition of the \rort\ was motivated by this realization.}---likely leaving ample opportunity to exercise your technical sophistication (Box~\ref{aside:technical_sophistication})---but it is an essential rite of passage for every aspiring technical wizard.
+While the IDE and VM options are great when you're just getting started, eventually it's important to be able to develop software on your native operating system (OS)\@. Unfortunately, setting up a fully functional native development environment can be a challenging and frustrating process\footnote{This is why it's such a bad idea to include a native dev setup at the beginning of a book like the \rortb. It's better to get started with the core material first, and tackle the native dev environment setup later. The switch over to a cloud IDE in the third edition of the \rortb\ was motivated by this realization.}---likely leaving ample opportunity to exercise your technical sophistication (Box~\ref{aside:technical_sophistication})---but it is an essential rite of passage for every aspiring technical wizard.
 
 In order to tackle this difficult challenge, in Section~\ref{sec:native_os_setup} we'll discuss native OS setup for macOS, Linux, and Windows. As a warning, we'd like to note that the Windows section is currently anticlimactic, as it simply defers to the IDE and VM solutions, but please \href{mailto:support@learnenough.com}{let us know} if you'd like to help by contributing a truly native Windows solution.
 
@@ -42,9 +42,9 @@ In order to tackle this difficult challenge, in Section~\ref{sec:native_os_setup
 \label{aside:technical_sophistication}
 \heading{Technical sophistication.}
 
-\emph{Technical sophistication} is the ability to independently solve technical problems. In the context of installing a development environment, this means knowing to Google the error message if something goes wrong, to try quitting and restarting an application (such as a command-line shell) to see if that fixes things, etc.
+\emph{Technical sophistication} is the ability to independently solve technical problems. In the context of installing a development environment, this means knowing to Google the error message if something goes wrong, to try quitting and restarting an application (such as the command-line shell) to see if that fixes things, etc.
 
-So many things can go wrong when setting up a development environment that there's rarely a general solution to the problem---you just have to keep applying your technical sophistication until you get everything to work.
+So many things can go wrong when setting up a development environment that there's rarely a general solution to the problem---you just have to keep applying your technical sophistication until you get everything to work. And if you do get stuck, don't worry too much about it---at some point or another, it happens to us all.
 
 \end{aside}
 
@@ -55,9 +55,9 @@ So many things can go wrong when setting up a development environment that there
 \section{Cloud IDE}
 \label{sec:cloud_ide}
 
-The easiest dev environment option is a \emph{cloud IDE}, which is an integrated development environment in the \href{https://en.wikipedia.org/wiki/Cloud_computing}{cloud} that you access using a web browser of your choice. Although easy to activate, the resulting system is an industrial-grade (\href{https://www.ubuntu.com/}{Ubuntu} Linux) machine, not a toy. In addition, the cloud IDE automatically works cross-platform, since all you need is an ordinary web browser, which ever major OS provides.
+The easiest dev environment option is a \emph{cloud IDE}, which is an integrated development environment in the \href{https://en.wikipedia.org/wiki/Cloud_computing}{cloud} that you access using the web browser of your choice. Although easy to activate, the resulting system is an industrial-grade development machine, not a toy. In addition, the cloud IDE automatically works cross-platform, since all you need is an ordinary web browser to use it (which ever major OS provides).
 
-There are several commercial options for running a cloud IDE, but as part of developing the \rort\ we partnered with \href{http://c9.io/}{Cloud9} (now part of Amazon Web Services). The resulting custom system, or ``workspace'', is appropriate for Ruby on Rails web development, and as a matter of course includes all the elements mentioned in Section~\ref{sec:dev_environment_options}. In particular, Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}. Because each Cloud9 workspace provides a full working Linux system, it also automatically includes Git and Ruby (among other languages).
+There are several commercial options for running a cloud IDE, and as part of developing the \rort\ we partnered with \href{http://c9.io/}{Cloud9} (now part of Amazon Web Services). The resulting custom system, or ``workspace'', is appropriate for Ruby on Rails web development, and as a matter of course includes all the elements mentioned in Section~\ref{sec:dev_environment_options}. In particular, Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}. Because each Cloud9 workspace provides a full working \href{https://www.ubuntu.com/}{Ubuntu} Linux system, it also automatically includes the Git version control system, as well as Ruby and several other programming languages.
 
 \begin{figure}
 \begin{center}
@@ -68,7 +68,7 @@ There are several commercial options for running a cloud IDE, but as part of dev
 
 If you decide to go the cloud IDE route, you can get started as follows:
 \begin{enumerate}
-\item \href{https://c9.io/web/sign-up/free}{Sign up for a free account at Cloud9}.\footnote{c9.io/signup} In order to prevent abuse, Cloud9 requires a valid credit card for signup, but the Rails Tutorial workspace is 100\% free, and your card will not be charged.
+\item \href{https://c9.io/web/sign-up/free}{Sign up for a free account at Cloud9}.\footnote{https://c9.io/signup} In order to prevent abuse, Cloud9 requires a valid credit card for signup, but the Rails Tutorial workspace is 100\% free, and your card will not be charged.
 \item Click on ``Go to your Dashboard''.
 \item Select ``Create New Workspace''.
 \item Using the ``Rails Tutorial'' template, create a workspace with a name of your choice. We recommend using ``rails-tutorial'', but other names would work as well. It's important to avoid using underscores, which can cause problems when trying to access apps under development (i.e., don't use the name ``rails\_tutorial'').
@@ -92,32 +92,31 @@ If you plan to do any Ruby development, we also recommend changing the editor to
 \caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
 \end{figure}
 
-At this point, you're done! Although Internet access is required to use Cloud9 (which can be inconvenient when bandwidth options are limited), there is no alternative that combines so much power with such an easy setup.
+At this point, you're done! Although Internet access is required to use Cloud9, there is no alternative that combines so much power with such an easy setup.
 
 
 \section{Virtual machine} % (fold)
 \label{sec:virtual_machine}
 
-A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In the case of the Learn Enough VM, you can run a full Linux system right inside of macOS or Windows (or even Linux! \href{https://en.wikipedia.org/wiki/Turtles_all_the_way_down}{It's turtles all the way down} (Figure~\ref{fig:turtles}).\footnote{Image retrieved from https://upload.wikimedia.org/wikipedia/commons/4/47/River\_terrapin.jpg on 2017-01-24 and is in the public domain.}).
+A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In the case of the Learn Enough VM that we recommend, you can run a full Linux system right inside of macOS or Windows (or even Linux! \href{https://en.wikipedia.org/wiki/Turtles_all_the_way_down}{It's turtles all the way down} (Figure~\ref{fig:turtles}).\footnote{Image retrieved from https://upload.wikimedia.org/wikipedia/commons/4/47/River\_terrapin.jpg on 2017-01-24. Image is in the public domain.}).
 
 \begin{figure}
 \begin{center}
-\image{images/figures/turtles.jpg}
+\includegraphics[width=5.5in]{images/figures/turtles.jpg}
 \end{center}
 \caption{It's turtles all the way down.\label{fig:turtles}}
 \end{figure}
 
 The virtual option we recommend is one we developed as part of \lecl, which involves installing a Linux virtual machine on your native system. The steps appear as follows:
-
 \begin{enumerate}
 \item Install the right version of \href{https://www.virtualbox.org/}{VirtualBox} for your system (free).
 \item Download the \href{https://softcover-static.s3.amazonaws.com/LearnEnough-v.1.4.ova}{Learn Enough Virtual Machine} (large file).
-\item Once the download is complete, double-click the resulting ``OVA'' file and follow the instructions to install the Virtual Machine (VM).
+\item Once the download is complete, double-click the resulting ``OVA'' file and follow the installation instructions.
 \item Double-click the VM itself and log in using the default user's password, which is ``\texttt{foobar!}''.
 \end{enumerate}
 (Getting all these steps to work is a good exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).)
 
-The result of the steps above is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, and Ruby. The interface might not be as familiar, fast, or as polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
+The result of installing the VM is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, and Ruby. The interface might not be as familiar, fast, or as polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
 
 \begin{figure}
 \begin{center}
@@ -132,7 +131,7 @@ The result of the steps above is a Linux desktop environment (Figure~\ref{fig:vi
 \section{Native OS setup} % (fold)
 \label{sec:native_os_setup}
 
-As mentioned in Section~\ref{sec:dev_environment_options}, setting up your native operating system as a development environment can be challenging, but is an important step to take once you've reached a certain level of technical sophistication. The cloud IDE or virtual machine options are great places to start, but eventually you have to grab the bull by the horns and bend your native system to your will (Figure~\ref{fig:grab_bull_by_horns}).\footnote{Image retrieved from https://www.flickr.com/photos/mikey\_loves\_bcn/4354275361 on 2017-01-24. Copyright © 2010 by \href{https://www.flickr.com/photos/mikey_loves_bcn/}{Mikey V} and used under the terms of the \ccbync\ license.}
+As mentioned in Section~\ref{sec:dev_environment_options}, setting up your native operating system as a development environment can be challenging, but it is an important step to take once you've reached a certain level of technical sophistication. The cloud IDE or virtual machine options are great places to start, but eventually you have to grab the bull by the horns (Figure~\ref{fig:grab_bull_by_horns})\footnote{Image retrieved from https://www.flickr.com/photos/mikey\_loves\_bcn/4354275361 on 2017-01-24. Copyright © 2010 by \href{https://www.flickr.com/photos/mikey_loves_bcn/}{Mikey V} and used under the terms of the \ccbync\ license.} and bend your native system to your will.
 
 \begin{figure}
 \begin{center}
@@ -141,17 +140,20 @@ As mentioned in Section~\ref{sec:dev_environment_options}, setting up your nativ
 \caption{Sometimes you have to grab the bull by the horns.\label{fig:grab_bull_by_horns}}
 \end{figure}
 
+Section~\ref{sec:macos} covers the conversion of macOS to a fully equipped development environment, while Section~\ref{sec:linux} does the same for Linux. We cover Microsoft Windows options in Section~\ref{sec:windows}, but (as mentioned briefly in Section~\ref{sec:dev_environment_options}) this section currently defers to the cloud IDE and VM options from Section~\ref{sec:cloud_ide} and Section~\ref{sec:virtual_machine}.
+
+
 \subsection{macOS} % (fold)
 \label{sec:macos}
 
-The native Macintosh operating system, formerly called Mac OS~X and now known as \emph{macOS}, has a polished graphical user interface (GUI) while also being based on Unix. As a result, macOS is ideally suited for use as a  programmer's development environment.
+The native Macintosh operating system, originally called Mac OS~X and now known simply as \emph{macOS}, has a polished graphical user interface (GUI) while being built on a solid Unix foundation. As a result, macOS is ideally suited for use as a programmer's development environment.
 
-The steps in this section constitute more than just a minimal system; you can actually get away with doing a lot less, but your three authors all use macOS, and we feel it's important not to shortchange you with a half-baked setup.
+The steps in this section constitute more than just a minimal system; you can actually get away with doing a lot less, but your three authors all use macOS themselves, and we feel that it's important not to shortchange you with a half-baked setup.
 
 \subsubsection{Terminal and editor} % (fold)
 \label{sec:terminal_and_editor}
 
-Although macOS comes with a native terminal program, we recommend you \href{https://www.iterm2.com/downloads.html}{install iTerm}, which includes \href{https://www.iterm2.com/features.html}{various enhancements} that make it a better choice for developers and other technical users.
+Although macOS comes with a native terminal program, we recommend installing \href{https://www.iterm2.com/downloads.html}{iTerm}, which includes \href{https://www.iterm2.com/features.html}{various enhancements} that make it a better choice than the default for developers and other technical users.
 
 We also recommend installing a programmer's text editor. There are lots of excellent choices, but the \href{https://atom.io/}{Atom editor} (covered in \lete) is a good place to start if you don't already have a favorite.
 
@@ -161,7 +163,7 @@ We also recommend installing a programmer's text editor. There are lots of excel
 \subsubsection{Xcode command line tools}
 \label{sec:shiny_xcode}
 
-Although based on Unix,\footnote{Specifically, the \href{https://en.wikipedia.org/wiki/NeXT}{NeXT} system developed by the company Steve Jobs founded in 1985 after being ousted from Apple. The NeXT OS became the foundation for Mac OS X (later, macOS) after Apple acquired NeXT in 1997, which also led to Jobs returning as Apple CEO.} macOS doesn't ship with all the software necessary for a proper development environment. In order to fill this gap, macOS users should install \emph{Xcode}, a large suite of development tools and code libraries created by Apple.
+Although based on Unix,\footnote{Specifically, the \href{https://en.wikipedia.org/wiki/NeXT}{NeXT} system developed by the company Steve Jobs founded in 1985 after being ousted from Apple. The NeXT OS became the foundation for Mac OS X (later, macOS) after Apple acquired NeXT in 1997, which also led to Jobs' trimphant return as Apple CEO\@.} macOS doesn't ship with all the software necessary for a proper development environment. In order to fill this gap, macOS users should install \emph{Xcode}, a large suite of development tools and code libraries created by Apple.
 
 Xcode used to require a 4+ GB download of installation source files, but thankfully Apple has recently made Xcode incredibly quick and easy to install with a simple command-line command, as shown in Listing~\ref{code:xcode-install}.
 
@@ -178,34 +180,35 @@ $ xcode-select --install
 \subsubsection{Homebrew}
 \label{sec:homebrew}
 
-The next step is technically optional but in our view is necessary for a truly professional-grade macOS dev environment: namely, installing the outstanding \emph{Homebrew} package manager.
+The next step is technically optional, but in our view it is necessary for a truly professional-grade macOS dev environment: namely, installing the outstanding \emph{Homebrew} package manager.
 
-You can think of a package manager as an App Store that runs at the command line and is filled with free open-source software. Nowadays most Linux distributions come with a native package manager (Section~\ref{sec:linux}), but by default macOS doesn't come with one. Homebrew is one of many managers that is available to the open-source community, but over time it has become the most popular options among serious macOS developers.
+You can think of a package manager as an App Store that runs at the command line and is filled with free open-source software. Nowadays most Linux distributions come with a native package manager (Section~\ref{sec:linux}), but by default macOS doesn't have one. Homebrew is one of many managers that is available in the open-source community, but over time it has become the most popular option among serious macOS developers.
 
-Installing Homebrew requires the Ruby programming language, which might seem like a problem since we haven't yet installed Ruby. Happily, macOS ships with a \emph{system Ruby} that we can use to \href{https://en.wikipedia.org/wiki/Bootstrapping}{bootstrap} the installation. We'll use this default Ruby to install Homebrew, and then in Section~\ref{sec:rbenv} we'll use Homebrew to install the Ruby environment manager \emph{rbenv}, which in turn will allow us to install additional Ruby versions of our choosing.
+As we'll see in Section~\ref{sec:install_ruby}, we'll be using a program called \emph{rbenv} to install Ruby, which in turn will be installed via Homebrew in Section~\ref{sec:rbenv}. But Homebrew itself requires Ruby, so it seems like we might have run into a \href{https://en.wikipedia.org/wiki/Circular_dependency}{circular dependency}. Happily, macOS ships with a \emph{system Ruby} that we can use to \href{https://en.wikipedia.org/wiki/Bootstrapping}{bootstrap} the installation. We'll use this default Ruby to install Homebrew, and then we'll install rbenv and additional Ruby versions as outlined above.
 
-The Homebrew installation program, or \emph{script}, is currently hosted at GitHub, and can be accessed using the \kode{curl} program \href{https://www.learnenough.com/command-line-tutorial#sec-downloading_a_file}{covered} in \lecl. We can install Homebrew by running this install script using the system Ruby program, which is located in \kode{/usr/bin/ruby}.
+The Homebrew installation program, or \emph{script}, is a Ruby program hosted online, and can be accessed using the \kode{curl} program \href{https://www.learnenough.com/command-line-tutorial#sec-downloading_a_file}{covered} in \lecl. We can execute the Homebrew installation script using the system Ruby program, which is located in the directory \kode{/usr/bin/ruby}. The full command appears as in Listing~\ref{code:homebrew-install}.
 
-The full command appears as in Listing~\ref{code:homebrew-install}. Note that you shouldn't include the prompt~\kode{\$} or the line-continuation indicator \kode{>}, but you should include the backslash \kode{\textbackslash}, which allows us to break longer lines into multiple parts. You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like. (The line break is only included to fit the design constraints of this document.)
+% Note that you shouldn't include the prompt~\kode{\$} or the line-continuation indicator \kode{>}, but you should include the backslash \kode{\textbackslash}, which allows us to break longer lines into multiple parts. You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like. (The line break is only included to fit the design constraints of this document.)
 
 \begin{codelisting}
 \label{code:homebrew-install}
 \codecaption{Installing the Homebrew package manager.}
 %= lang:console
 \begin{code}
-$ /usr/bin/ruby -e \
-> "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fSL https://www.learnenough.com/homebrew)"
 \end{code}
 \end{codelisting}
 
-Homebrew installs the \kode{brew} command-line command for installing, updating, and removing packages. After the installation of Homebrew finishes, you will be prompted to run \kode{brew doctor}, which ensures that all of the directories and permissions needed by Homebrew to manage local files are correctly set up:
+Note that Listing~\ref{code:homebrew-install} uses a learnenough.com forwarding URL, which points to the current Homebrew installation script. This way, if Homebrew changes the URL used to host the script, we can simply update the forwarding address, and this tutorial will continue to work as written. (You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like.)
+
+Homebrew installs a \kode{brew} command-line command used for installing, updating, and removing packages. After the installation of Homebrew finishes, you will be prompted to run \kode{brew doctor}, which ensures that all of the directories and permissions needed by Homebrew to manage local files are correctly set up:
 
 %= lang:console
 \begin{code}
 $ brew doctor
 \end{code}
 
-\noindent If you have any problems at this point, you'll need to refer to the \href{https://github.com/Homebrew/homebrew/wiki/troubleshooting}{Homebrew troubleshooting wiki}, but you really shouldn't though unless you've been making changes to random system folders and permissions.
+\noindent If you have any problems at this point, you'll need to refer to the \href{https://github.com/Homebrew/homebrew/wiki/troubleshooting}{Homebrew troubleshooting wiki}, but you really shouldn't unless you've been making changes to random system folders and permissions.
 
 \subsubsection{Git} % (fold)
 \label{sec:git}
@@ -260,7 +263,7 @@ eval "$(rbenv init -)"
 \end{code}
 \end{codelisting}
 
-\noindent If Listing~\ref{code:rbenv_init} gives you an error message like ``No such file or directory.'', try exiting your shell program with \verb+⌃D+ and restarting it, and then try the command again. (This sort of restart-and-retry technique is classic technical sophistication (Box~\ref{aside:technical_sophistication}).)
+\noindent If Listing~\ref{code:rbenv_init} gives you an error message like ``No such file or directory.'', try exiting your shell program with Ctrl-D and restarting it, and then try the command again. (This sort of restart-and-retry technique is classic technical sophistication (Box~\ref{aside:technical_sophistication}).)
 
 As seen in Listing~\ref{code:rbenv_init}, running \kode{rbenv init} gives us a suggestion for how to avoid having to initializing rbenv by hand each time: we simply need to append the line
 
@@ -271,7 +274,7 @@ eval "$(rbenv init -)"
 
 \noindent to our Bash profile file \kode{.bash\_profile} (which is \href{https://www.learnenough.com/text-editor-tutorial#sec-saving_and_quitting_files}{covered} in \lete).
 
-Of course, you can use a text editor to add the \kode{eval} line to \kode{.bash\_profile}, but the easiest way is to use \kode{echo} and the append operator~\kode{>{}>} \href{https://www.learnenough.com/command-line-tutorial#sec-redirecting_and_appending}{covered} in \lecl, like this:
+If you prefer, you can use a text editor to add the \kode{eval} line to your system's \kode{.bash\_profile} file, but the easiest way is to use \kode{echo} and the append operator~\kode{>{}>} \href{https://www.learnenough.com/command-line-tutorial#sec-redirecting_and_appending}{covered} in \lecl, like this:
 
 %= lang:console
 \begin{code}
