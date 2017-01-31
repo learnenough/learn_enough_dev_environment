@@ -1,6 +1,13 @@
-# Edit this file to customize your deployment steps with custom command options
-# or additional commands.
-#
-# softcover build:all
-# softcover build:preview
-# softcover publish
+git push
+git checkout amazon
+git merge master --no-edit
+softcover deploy
+git add -A && git checkout -f
+git checkout master
+rm -f ebooks/*
+softcover build:html
+softcover publish
+softcover build:mobi
+softcover build:pdf
+cp ebooks/*.pdf ~/Dropbox/Books/
+softcover publish
