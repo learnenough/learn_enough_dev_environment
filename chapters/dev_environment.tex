@@ -1,6 +1,6 @@
 One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{http://www.learnenough.com/tutorials}{main Learn Enough sequence} and the \rort\ by putting all of the relevant material in one place.
 
-This tutorial covers several options for setting up a dev environment, aimed at readers of varying levels of experience and sophistication. If you end up using one of the options shown in Section~\ref{sec:cloud_ide} or Section~\ref{sec:virtual_machine}, there is no minimum prerequisite for this tutorial. If you want to follow the more challenging setup in Section~\ref{sec:native_os_setup}---which we recommend most readers tackle at some point---you should have a basic familiarity with the Unix command line (as covered in \lecl), and a familiarity with text editors and system configration (as covered in \lete) is recommended.
+This tutorial covers several options for setting up a dev environment, aimed at readers of varying levels of experience and sophistication. If you end up using one of the options shown in Section~\ref{sec:cloud_ide} or Section~\ref{sec:virtual_machine}, there is no minimum prerequisite for this tutorial. If you want to follow the more challenging setup in Section~\ref{sec:native_os_setup}---which we recommend most readers tackle at some point---you should have a basic familiarity with the Unix command line (as covered in \lecl), and a familiarity with text editors and system configuration (as covered in \lete) is recommended.
 
 \section{Dev environment options} % (fold)
 \label{sec:dev_environment_options}
@@ -163,7 +163,7 @@ We also recommend installing a programmer's text editor. There are lots of excel
 \subsubsection{Xcode command line tools}
 \label{sec:shiny_xcode}
 
-Although based on Unix,\footnote{Specifically, the \href{https://en.wikipedia.org/wiki/NeXT}{NeXT} system developed by the company Steve Jobs founded in 1985 after being ousted from Apple. The NeXT OS became the foundation for Mac OS X (later, macOS) after Apple acquired NeXT in 1997, which also led to Jobs' trimphant return as Apple CEO\@.} macOS doesn't ship with all the software necessary for a proper development environment. In order to fill this gap, macOS users should install \emph{Xcode}, a large suite of development tools and code libraries created by Apple.
+Although based on Unix,\footnote{Specifically, the \href{https://en.wikipedia.org/wiki/NeXT}{NeXT} system developed by the company Steve Jobs founded in 1985 after being ousted from Apple. The NeXT OS became the foundation for Mac OS X (later, macOS) after Apple acquired NeXT in 1997, which also led to Jobs' triumphant return as Apple CEO\@.} macOS doesn't ship with all the software necessary for a proper development environment. In order to fill this gap, macOS users should install \emph{Xcode}, a large suite of development tools and code libraries created by Apple.
 
 Xcode used to require a 4+ GB download of installation source files, but thankfully Apple has recently made Xcode incredibly quick and easy to install with a simple command-line command, as shown in Listing~\ref{code:xcode-install}.
 
@@ -275,21 +275,11 @@ $ source ~/.bash_profile
 \subsubsection{New Ruby version}
 \label{sec:install_ruby}
 
-Now that rbenv is set up, let's give it a non-system version of Ruby to manage. The installation process is handled entirely by rbenv, so all you have to do is instruct it as to which version you'd like on your system by passing along the exact Ruby version number.
+Now that rbenv is set up, let's give it a non-system version of Ruby to manage. The installation process is handled entirely by rbenv, so all you have to do is tell it which version you'd like on your system by passing along the exact Ruby version number.
 
-In case it's been a while since you installed rbenv and ruby-build, we'll first \kode{update} Homebrew and \kode{upgrade} rbenv and ruby-build, as follows:
+We'll use Ruby 2.3.3 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use \href{https://www.ruby-lang.org/en/downloads/}{current stable version} as listed at the Ruby website.\footnote{At the moment, Ruby 2.4.0 is the current stable version, but its unification of the \kode{Fixnum} and \kode{Bignum} classes into a single \kode{Integer} class causes many older programs to emit verbose deprecation warnings, which is why right now we're going with Ruby 2.3.3.}
 
-%= lang:console
-\begin{code}
-$ brew update
-$ brew upgrade rbenv ruby-build
-\end{code}
-
-\noindent If you already have the latest versions, as you will if you just completed Section~\ref{sec:rbenv}, you will get a couple of ``error'' messages, which you can safely ignore.
-
-Now we're ready to install a custom version of Ruby. We'll use Ruby 2.3.3 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use \href{https://www.ruby-lang.org/en/downloads/}{current stable version} as listed at the Ruby website.\footnote{At the moment, Ruby 2.4.0 is the current stable version, but its unification of the \kode{Fixnum} and \kode{Bignum} classes into a single \kode{Integer} class causes many older programs to emit verbose deprecation warnings, which is why right now we're going with Ruby 2.3.3.}
-
-To install the desired version of Ruby using \kode{rbenv}, simply execute the command shown in Listing~\ref{code:ruby-install}.
+To install the desired version of Ruby using \kode{rbenv}, simply execute the command shown in Listing~\ref{code:ruby-install}. If your system ever complains that the given Ruby version isn't available, you'll have to update your system to access the latest version (Box~\ref{aside:updating_upgrading}).
 
 \begin{codelisting}
 \label{code:ruby-install}
@@ -301,6 +291,19 @@ $ rbenv install 2.3.3
 \end{codelisting}
 
 \noindent After running the command in Listing~\ref{code:ruby-install}, you should see rbenv start the download process and install any dependencies that are needed for that specific version of Ruby (which might take a while depending on bandwidth and CPU limitations).
+
+\begin{aside}
+\label{aside:updating_upgrading}
+\heading{Updating and upgrading}
+
+Although we just installed fresh versions of all relevant software, after a while your local system will get out of sync with the latest versions of Homebrew and any installed packages. In order to update the system, every once in a while it's a good idea to update Homebrew itself and then upgrade the installed packages as follows:
+
+\begin{verbatim}
+  $ brew update
+  $ brew upgrade
+\end{verbatim}
+
+\end{aside}
 
 After the Ruby installation finishes, we need to tell the system that there's a new version of Ruby using the obscurely named \kode{rehash} command:
 
@@ -318,7 +321,7 @@ $ rbenv global 2.3.3
 
 \noindent At this point, it's probably a good idea to restart your shell program to make sure all the settings are properly updated.
 
-For future work, you may want to use specific versions of Ruby on a per-project basis, which can be done by creating a file called \kode{.ruby-version} in the project's root directory and including the version of Ruby to be used. (You'll also have to install it, of course, using \kode{rbenv install <version number>}.) See the \href{https://github.com/rbenv/rbenv}{rbenv documentation} for more information.
+For future work, you may want to use specific versions of Ruby on a per-project basis, which can be done by creating a file called \kode{.ruby-version} in the project's root directory and including the version of Ruby to be used. (You'll also have to install it, of course, using \kode{rbenv install <version number>} as in Listing~\ref{code:ruby-install}.) See the \href{https://github.com/rbenv/rbenv}{rbenv documentation} for more information.
 
 \subsubsection{Git} % (fold)
 \label{sec:git}
@@ -360,7 +363,7 @@ At this point, you should be good to go!
 \subsection{Windows} % (fold)
 \label{sec:windows}
 
-Finally, and anti-climactically, we have native (non-)instructions for Microsoft Windows. Because none of your humble authors \href{http://blog.dictionary.com/none/}{are} well-acquainted with Windows software development, we did a Twitter survey, and found that the typical response was ``Use a Linux VM\@.'' Sigh.
+Finally, and anti-climactically, we have native (non-)instructions for Microsoft Windows. Because none of your humble authors are well-acquainted with Windows software development, we did a Twitter survey, and found that the typical response was ``Use a Linux VM\@.'' Sigh.
 
 So, for now we officially recommend either a cloud IDE (Section~\ref{sec:cloud_ide}) or a Linux VM (Section~\ref{sec:virtual_machine}) if you're using Windows. We're definitely interested in a more natively appropriate solution, though, so please \href{mailto:support@learnenough.com}{let us know} if you'd like to volunteer suggestions. Thanks!
 
@@ -371,7 +374,7 @@ So, for now we officially recommend either a cloud IDE (Section~\ref{sec:cloud_i
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-If you've made it this far---and especially if you completed a native OS setup in Section~\ref{sec:native_os_setup}---you've now learned enough development environment to be \emph{dangerous}. You're ready to move on to complete challenging tutorials like \lecss, \ler, and the \rort. Good luck!
+If you've made it this far---and especially if you completed a native OS setup in Section~\ref{sec:native_os_setup}---you've now learned enough dev environment to be \emph{dangerous}. You're ready to move on to complete challenging tutorials like \lecss, \ler, and the \rort. Good luck!
 
 % section conclusion (end)
 
