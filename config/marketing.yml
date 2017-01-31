@@ -1,4 +1,5 @@
 ---
+convert_kit_follow_tag_id: 159000
 prices:
   -
     code: ebooks
@@ -9,19 +10,8 @@ prices:
         * Incredibly awesome content
     media:
       - ebooks
-    price: 3500
-
-  -
-    code: all
-    name: "HTML, Ebook, and Screencasts"
-    description:
-      |
-        * Includes 10 hours of video screencasts
-        * Ebooks inclded in PDF/EPUB/MOBI formats
-    media:
-      - ebooks
-      - media/screencasts
-    price: 12500
+    price: 0.00
+    convert_kit_tag_id: 158998
 
 authors:
   -
