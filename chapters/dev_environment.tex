@@ -2,6 +2,8 @@ One of the most important tasks for any aspiring developer---or any technical pe
 
 This tutorial covers several options for setting up a dev environment, aimed at readers of varying levels of experience and sophistication. If you end up using one of the options shown in Section~\ref{sec:cloud_ide} or Section~\ref{sec:virtual_machine}, there is no minimum prerequisite for this tutorial. If you want to follow the more challenging setup in Section~\ref{sec:native_os_setup}---which we recommend most readers tackle at some point---you should have a basic familiarity with the Unix command line (as covered in \lecl), and a familiarity with text editors and system configuration (as covered in \lete) is recommended.
 
+Ebook versions of this tutorial are available for \href{https://www.softcover.io/email-capture/28fdb94f/learn_enough_dev_environment}{free at learnenough.com} and for \href{https://www.amazon.com/Learn-Enough-Dev-Environment-Dangerous-ebook/dp/B01MTEQJ6E}{99¢ at Amazon.com}.
+
 \section{Dev environment options} % (fold)
 \label{sec:dev_environment_options}
 
@@ -322,6 +324,15 @@ $ rbenv global 2.3.3
 \noindent At this point, it's probably a good idea to restart your shell program to make sure all the settings are properly updated.
 
 For future work, you may want to use specific versions of Ruby on a per-project basis, which can be done by creating a file called \kode{.ruby-version} in the project's root directory and including the version of Ruby to be used. (You'll also have to install it, of course, using \kode{rbenv install <version number>} as in Listing~\ref{code:ruby-install}.) See the \href{https://github.com/rbenv/rbenv}{rbenv documentation} for more information.
+
+Finally, when installing Ruby software via \emph{gems}, or self-contained packages of Ruby code, it's often convenient to skip the installation of the local documentation, which can take more time to install than the software itself, and in any case is more conveniently accessed online. Preventing documentation installation can be done on a case-by-case basis, but it's more convenient to make it a global default by creating a file in the home directory called \kode{.gemrc} with instructions to skip the installation of Ruby Index (\kode{ri}) and Ruby Document (\kode{rdoc}) files:
+
+%= lang:console
+\begin{code}
+$ echo "gem: --no-ri --no-rdoc" > ~/.gemrc
+\end{code}
+
+\noindent With that configuration, any uses of \kode{gem install <gem name>} to install Ruby gems will automatically be svelte, streamlined, and documentation-free.
 
 \subsubsection{Git} % (fold)
 \label{sec:git}
