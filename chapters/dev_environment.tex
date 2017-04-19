@@ -294,6 +294,27 @@ $ rbenv install 2.3.3
 
 \noindent After running the command in Listing~\ref{code:ruby-install}, you should see rbenv start the download process and install any dependencies that are needed for that specific version of Ruby (which might take a while depending on bandwidth and CPU limitations).
 
+\emph{Note}: You may get an error message of the form
+
+%= lang:console
+\begin{code}
+ruby-build: definition not found: 2.3.3
+
+See all available versions with `rbenv install --list'.
+
+If the version you need is missing, try upgrading ruby-build:
+
+  brew update && brew upgrade ruby-build
+\end{code}
+
+\noindent If this happens, you should clone the freshest \kode{ruby-build} list into the rbenv \kode{plugins} directory:
+
+%= lang:console
+\begin{code}
+$ mkdir ~/.rbenv/plugins
+$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+\end{code}
+
 \begin{aside}
 \label{aside:updating_upgrading}
 \heading{Updating and upgrading}
