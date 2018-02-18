@@ -232,14 +232,14 @@ As we've just seen, macOS comes with Ruby preinstalled, but we don't have any co
 
 Using rbenv together with the associated \emph{ruby-build} command also allows us to specify a different version of Ruby for different project repositories, which is a common task in software development.\footnote{E.g., the \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{\emph{virtualenv}} utility accomplishes a similar task for Python projects.} For example, an older version of a program might need an older version of Ruby to run correctly. Using rbenv means we can support such an older program while still running a more up-to-date version of Ruby for our other projects.
 
-Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build in one step using \kode{brew install}, as shown in Listing~\ref{code:rbenv}.
+Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build in one step using \kode{brew install rbenv}, as shown in Listing~\ref{code:rbenv}.
 
 \begin{codelisting}
 \label{code:rbenv}
-\codecaption{Installing rbenv.}
+\codecaption{Installing rbenv and ruby-build.}
 %= lang:console
 \begin{code}
-$ brew install rbenv ruby-build
+$ brew install rbenv    # automatically installs ruby-build as well
 \end{code}
 \end{codelisting}
 
@@ -396,7 +396,7 @@ Because of Linux's highly technical origins, Linux systems typically come well-e
 Every major Linux distribution ships with a terminal program, a text editor, and Git. There are only three major steps we recommend in addition to the defaults:
 \begin{enumerate}
   \item \href{https://atom.io/}{Download and install Atom} if you don't already have a favorite editor.
-  \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv and ruby-build installation instructions} from the rbenv website.
+  \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv installation instructions} from the rbenv website.
   \item Install Ruby as shown in Listing~\ref{code:ruby-install}.
 \end{enumerate}
 
