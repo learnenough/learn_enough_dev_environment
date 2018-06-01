@@ -1,5 +1,6 @@
 git push
 git checkout amazon
+git pull
 git merge master --no-edit
 softcover deploy
 git add -A && git checkout -f
