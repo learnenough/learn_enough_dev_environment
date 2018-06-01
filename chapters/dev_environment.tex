@@ -59,37 +59,49 @@ So many things can go wrong when setting up a development environment that there
 
 The easiest dev environment option is a \emph{cloud IDE}, which is an integrated development environment in the \href{https://en.wikipedia.org/wiki/Cloud_computing}{cloud} that you access using the web browser of your choice. Although easy to activate, the resulting system is an industrial-grade development machine, not a toy. In addition, the cloud IDE automatically works cross-platform, since all you need is an ordinary web browser to use it (which every major OS provides).
 
-There are several commercial options for running a cloud IDE, and as part of developing the \rort\ we partnered with \href{http://c9.io/}{Cloud9} (now part of Amazon Web Services). The resulting custom system, or ``workspace'', is appropriate for Ruby on Rails web development, and as a matter of course includes all the elements mentioned in Section~\ref{sec:dev_environment_options}. In particular, Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}. Because each Cloud9 workspace provides a full working \href{https://www.ubuntu.com/}{Ubuntu} Linux system, it also automatically includes the Git version control system, as well as Ruby and several other programming languages.
+There are several commercial options for running a cloud IDE, and as part of developing the \rort\ we partnered with \href{http://c9.io/}{Cloud9} (part of Amazon Web Services). The resulting environment is appropriate for Ruby on Rails web development, and as a matter of course includes all the elements mentioned in Section~\ref{sec:dev_environment_options}. In particular, AWS Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}. Because each Cloud9 workspace provides a full working Linux system, it also automatically includes the Git version control system, as well as Ruby and several other programming languages.
 
 \begin{figure}
 \begin{center}
-\image{images/figures/ide_anatomy.png}
+\image{images/figures/ide_anatomy_aws.png}
 \end{center}
 \caption{The anatomy of the cloud IDE.\label{fig:ide_anatomy}}
 \end{figure}
 
-If you decide to go the cloud IDE route, you can get started as follows:
+Here are the steps for getting started with the cloud development environment:\footnote{Due to the constantly evolving nature of sites like AWS, details may vary; use your technical sophistication (Box~\ref{aside:technical_sophistication}) to resolve any discrepancies.}
 \begin{enumerate}
-\item \href{https://c9.io/web/sign-up/free}{Sign up for a free account at Cloud9}.\footnote{https://c9.io/signup} In order to prevent abuse, Cloud9 requires a valid credit card for signup, but the Rails Tutorial workspace is 100\% free, and your card will not be charged.
-\item Click on ``Go to your Dashboard''.
-\item Select ``Create New Workspace''.
-\item Using the ``Rails Tutorial'' template, create a workspace with a name of your choice. We recommend using ``rails-tutorial'', but other names would work as well. It's important to avoid using underscores, which can cause problems when trying to access apps under development (i.e., don't use the name ``rails\_tutorial'').
-\item Click ``Create workspace''.
-\item After Cloud9 has finished provisioning the workspace, it should start automatically.
+\item Because Cloud9 is part of Amazon Web Services (AWS), if you already have an AWS account you can just \href{https://aws.amazon.com/}{sign in}.\footnote{https://aws.amazon.com/} To create a new Cloud9 workspace environment, go to the \href{https://console.aws.amazon.com/}{AWS console} and type ``Cloud9'' in the search box.
+\item If you don't already have an AWS account, you should \href{https://www.railstutorial.org/cloud9-signup}{sign up for a free account at AWS Cloud9}.\footnote{https://www.railstutorial.org/cloud9-signup} In order to prevent abuse, AWS requires a valid credit card for signup, but the workspace is 100\% free (for a year as of this writing), and your card will not be charged. You might have to wait up to 24 hours for the account to be activated, but in my case it was ready in about ten minutes.
+\item Once you've successfully gotten to the Cloud9 administrative page (Figure~\ref{fig:cloud9_page_aws}), keep clicking on ``Create environment'' until you find yourself on a page that looks like Figure~\ref{fig:cloud9_new_workspace}. Enter the information as shown there, then keep clicking the confirmation buttons until Cloud9 starts provisioning the IDE (Figure~\ref{fig:cloud9_ide_aws}). You may run into a warning message about being a ``root'' user, which you can safely ignore at this early stage. (If you're feeling up to it, you can implement the preferred method, called an Identity and Access Management (IAM) user, at this point. See \href{https://www.railstutorial.org/book/user_microposts#sec-image_upload_in_production}{Chapter 13 in the \emph{Ruby on Rails Tutorial}} for more information.)
 \end{enumerate}
 
 \begin{figure}
 \begin{center}
-\image{images/figures/cloud9_new_workspace_4th_ed.png}
+\image{images/figures/cloud9_page_aws.png}
 \end{center}
-\caption{Creating a new workspace at Cloud9.\label{fig:cloud9_new_workspace}}
+\caption{The administrative page for Cloud9.\label{fig:cloud9_page_aws}}
 \end{figure}
-
-If you plan to do any Ruby development, we also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then selecting ``Code Editor (Ace)'' to edit the ``Soft Tabs'' setting. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
 
 \begin{figure}
 \begin{center}
-\image{images/figures/cloud9_two_spaces.png}
+\image{images/figures/cloud9_name_environment.png}
+\end{center}
+\caption{Creating a new work environment at AWS Cloud9.\label{fig:cloud9_new_workspace}}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\image{images/figures/cloud9_ide_aws.png}
+\end{center}
+\caption{The default cloud IDE. \label{fig:cloud9_ide_aws}}
+\end{figure}
+
+Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the ``Soft Tabs'' setting to~2. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
+
+
+\begin{figure}
+\begin{center}
+\image{images/figures/cloud9_two_spaces_aws.png}
 \end{center}
 \caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
 \end{figure}
@@ -220,14 +232,14 @@ As we've just seen, macOS comes with Ruby preinstalled, but we don't have any co
 
 Using rbenv together with the associated \emph{ruby-build} command also allows us to specify a different version of Ruby for different project repositories, which is a common task in software development.\footnote{E.g., the \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{\emph{virtualenv}} utility accomplishes a similar task for Python projects.} For example, an older version of a program might need an older version of Ruby to run correctly. Using rbenv means we can support such an older program while still running a more up-to-date version of Ruby for our other projects.
 
-Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build in one step using \kode{brew install}, as shown in Listing~\ref{code:rbenv}.
+Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build in one step using \kode{brew install rbenv}, as shown in Listing~\ref{code:rbenv}.
 
 \begin{codelisting}
 \label{code:rbenv}
-\codecaption{Installing rbenv.}
+\codecaption{Installing rbenv and ruby-build.}
 %= lang:console
 \begin{code}
-$ brew install rbenv ruby-build
+$ brew install rbenv    # automatically installs ruby-build as well
 \end{code}
 \end{codelisting}
 
@@ -384,7 +396,7 @@ Because of Linux's highly technical origins, Linux systems typically come well-e
 Every major Linux distribution ships with a terminal program, a text editor, and Git. There are only three major steps we recommend in addition to the defaults:
 \begin{enumerate}
   \item \href{https://atom.io/}{Download and install Atom} if you don't already have a favorite editor.
-  \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv and ruby-build installation instructions} from the rbenv website.
+  \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv installation instructions} from the rbenv website.
   \item Install Ruby as shown in Listing~\ref{code:ruby-install}.
 \end{enumerate}
 
