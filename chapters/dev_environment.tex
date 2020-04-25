@@ -204,22 +204,20 @@ You can think of a package manager as an App Store that runs at the command line
 
 As we'll see in Section~\ref{sec:install_ruby}, we'll be using a program called \emph{rbenv} to install Ruby, which in turn will be installed via Homebrew in Section~\ref{sec:rbenv}. But Homebrew itself requires Ruby, so it seems like we might have run into a \href{https://en.wikipedia.org/wiki/Circular_dependency}{circular dependency}. Happily, macOS ships with a \emph{system Ruby} that we can use to \href{https://en.wikipedia.org/wiki/Bootstrapping}{bootstrap} the installation. We'll use this default Ruby to install Homebrew, and then we'll install rbenv and additional Ruby versions as outlined above.
 
-The Homebrew installation program, or \emph{script}, is a Ruby program hosted online, and can be accessed using the \kode{curl} program \href{https://www.learnenough.com/command-line-tutorial#sec-downloading_a_file}{covered} in \lecl. We can execute the Homebrew installation script using the system Ruby program, which is located in the directory \kode{/usr/bin/ruby}. The full command appears as in Listing~\ref{code:homebrew-install}.
-
-% Note that you shouldn't include the prompt~\kode{\$} or the line-continuation indicator \kode{>}, but you should include the backslash \kode{\textbackslash}, which allows us to break longer lines into multiple parts. You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like. (The line break is only included to fit the design constraints of this document.)
+The Homebrew installation program is a \href{https://www.learnenough.com/text-editor-tutorial/advanced_text_editing#sec-writing_an_executable_script}{Bash script}, and can be accessed using the \kode{curl} program \href{https://www.learnenough.com/command-line-tutorial#sec-downloading_a_file}{covered} in \lecl. We can execute the Homebrew installation script using the system \kode{bash} executable, which is located in the \kode{/bin} directory. The full command appears as in Listing~\ref{code:homebrew-install}.
 
 \begin{codelisting}
 \label{code:homebrew-install}
 \codecaption{Installing the Homebrew package manager.}
 %= lang:console
 \begin{code}
-$ /usr/bin/ruby -e "$(curl -fSL https://www.learnenough.com/homebrew)"
+$ /bin/bash -c "$(curl -fsSL https://www.learnenough.com/homebrew.sh)"
 \end{code}
 \end{codelisting}
 
-Note that Listing~\ref{code:homebrew-install} uses a learnenough.com forwarding URL, which points to the current Homebrew installation script. This way, if Homebrew changes the URL used to host the script, we can simply update the forwarding address, and this tutorial will continue to work as written. (You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like.)
+\noindent Note that Listing~\ref{code:homebrew-install} uses a learnenough.com forwarding URL, which points to the current Homebrew installation script. This way, if Homebrew changes the URL used to host the script, we can simply update the forwarding address, and this tutorial will continue to work as written. (You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like.)
 
-Homebrew installs a \kode{brew} command-line command used for installing, updating, and removing packages. After the installation of Homebrew finishes, you will be prompted to run \kode{brew doctor}, which ensures that all of the directories and permissions needed by Homebrew to manage local files are correctly set up:
+Homebrew installs a \kode{brew} command-line command used for installing, updating, and removing packages. After the installation of Homebrew finishes, it's a good idea to run \kode{brew doctor}, which ensures that all of the directories and permissions needed by Homebrew to manage local files are correctly set up:
 
 %= lang:console
 \begin{code}
@@ -264,7 +262,7 @@ eval "$(rbenv init -)"
 
 \noindent If Listing~\ref{code:rbenv_init} gives you an error message like ``No such file or directory.'', try exiting your shell program with Ctrl-D and restarting it, and then try the command again. (This sort of restart-and-retry technique is classic technical sophistication (Box~\ref{aside:technical_sophistication}).)
 
-As seen in Listing~\ref{code:rbenv_init}, running \kode{rbenv init} gives us a suggestion for how to avoid having to initializing rbenv by hand each time: we simply need to append the line
+As seen in Listing~\ref{code:rbenv_init}, running \kode{rbenv init} gives us a suggestion for how to avoid having to initialize rbenv by hand each time: we simply need to append the line
 
 %= lang:bash
 \begin{code}
@@ -386,7 +384,7 @@ $ echo "gem: --no-document" >> ~/.gemrc
 \subsubsection{Git} % (fold)
 \label{sec:git}
 
-A recent version of the Git version control system should come automatically with the Xcode command-line tools installed in Section~\ref{sec:shiny_xcode}, which you can verify this using the \kode{which} command:
+A recent version of the Git version control system should come automatically with the Xcode command-line tools installed in Section~\ref{sec:shiny_xcode}, which you can verify using the \kode{which} command:
 
 %= lang:console
 \begin{code}
