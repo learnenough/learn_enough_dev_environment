@@ -1,3 +1,3 @@
 git push
-softcover build:mobi --kindlegen
+softcover build:mobi
 cp ebooks/*.mobi ~/Desktop
