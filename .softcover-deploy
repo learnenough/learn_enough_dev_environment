@@ -1,3 +1,4 @@
+git pull --no-edit
 git push
-softcover build:mobi
-cp ebooks/*.mobi ~/Desktop
+softcover build:epub
+cp ebooks/*.epub ~/Desktop
