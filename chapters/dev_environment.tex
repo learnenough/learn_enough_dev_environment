@@ -46,7 +46,7 @@ In order to tackle this difficult challenge, in Section~\ref{sec:native_os_setup
 \label{aside:technical_sophistication}
 \heading{Technical sophistication.}
 
-\emph{Technical sophistication} is the ability to independently solve technical problems. In the context of installing a development environment, this means knowing to Google the error message if something goes wrong, to try quitting and restarting an application (such as the command-line shell) to see if that fixes things, etc.
+\emph{Technical sophistication} is the ability to independently solve technical problems. In the context of installing a development environment, this means knowing to google the error message if something goes wrong, to try quitting and restarting an application (such as the command-line shell) to see if that fixes things, etc.
 
 So many things can go wrong when setting up a development environment that there's rarely a general solution to the problem---you just have to keep applying your technical sophistication until you get everything to work. And if you do get stuck, don't worry too much about it---at some point or another, it happens to us all.
 
@@ -257,7 +257,7 @@ After the installation from Listing~\ref{code:rbenv} finishes, we need to get rb
 \begin{code}
 $ rbenv init
 # Load rbenv automatically by appending
-# the following to ~/.bash_profile:
+# the following to ~/.bash_profile (or ~/.zshrc if using Zsh):
 
 eval "$(rbenv init -)"
 \end{code}
@@ -278,7 +278,7 @@ If you prefer, you can use a text editor to add the \kode{eval} line to your sys
 
 %= lang:console
 \begin{code}
-$ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+$ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile    # or ~/.zshrc if using Zsh
 \end{code}
 
 \noindent Note that we've included the home directory \kode{\textasciitilde} in the path so that it works no matter which directory we're currently in.
@@ -287,7 +287,7 @@ Finally, to activate the new profile file we need to \kode{source} it (as \href{
 
 %= lang:console
 \begin{code}
-$ source ~/.bash_profile
+$ source ~/.bash_profile    # or ~/.zshrc if using Zsh
 \end{code}
 
 
@@ -296,7 +296,7 @@ $ source ~/.bash_profile
 
 Now that rbenv is set up, let's give it a non-system version of Ruby to manage. The installation process is handled entirely by rbenv, so all you have to do is tell it which version you'd like on your system by passing along the exact Ruby version number.
 
-We'll use Ruby 2.6.3 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use \href{https://www.ruby-lang.org/en/downloads/}{current or previous version} as listed at the Ruby website.
+We'll use Ruby 2.7.2 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use \href{https://www.ruby-lang.org/en/downloads/}{current or previous version} as listed at the Ruby website.
 
 To install the desired version of Ruby using \kode{rbenv}, simply execute the command shown in Listing~\ref{code:ruby-install}. If your system ever complains that the given Ruby version isn't available, you'll have to update your system to access the latest version (Box~\ref{aside:updating_upgrading}).
 
@@ -305,7 +305,7 @@ To install the desired version of Ruby using \kode{rbenv}, simply execute the co
 \codecaption{Installing a fresh copy of Ruby.}
 %= lang:console
 \begin{code}
-$ rbenv install 2.6.3
+$ rbenv install 2.7.2
 \end{code}
 \end{codelisting}
 
@@ -315,7 +315,7 @@ $ rbenv install 2.6.3
 
 %= lang:console
 \begin{code}
-ruby-build: definition not found: 2.6.3
+ruby-build: definition not found: 2.7.2
 
 See all available versions with `rbenv install --list'.
 
@@ -363,7 +363,7 @@ For this guide, we are also going to set the Ruby version from Listing~\ref{code
 
 %= lang:console
 \begin{code}
-$ rbenv global 2.6.3
+$ rbenv global 2.7.2
 \end{code}
 
 \noindent At this point, it's probably a good idea to restart your shell program to make sure all the settings are properly updated.
