@@ -74,7 +74,7 @@ Here are the steps for getting started with the cloud development environment:\f
 \begin{enumerate}
 \item Because Cloud9 is part of Amazon Web Services (AWS), if you already have an AWS account you can just \href{https://aws.amazon.com/}{sign in}.\footnote{https://aws.amazon.com/} To create a new Cloud9 workspace environment, go to the \href{https://console.aws.amazon.com/}{AWS console} and type ``Cloud9'' in the search box.
 \item If you don't already have an AWS account, you should \href{https://www.railstutorial.org/cloud9-signup}{sign up for a free account at AWS Cloud9}.\footnote{https://www.railstutorial.org/cloud9-signup} In order to prevent abuse, AWS requires a valid credit card for signup, but the workspace is 100\% free (for a year as of this writing), and your card will not be charged. You might have to wait up to 24 hours for the account to be activated, but in my case it was ready in about ten minutes.
-\item Once you've successfully gotten to the Cloud9 administrative page (Figure~\ref{fig:cloud9_page_aws}), keep clicking on ``Create environment'' until you find yourself on a page that looks like Figure~\ref{fig:cloud9_new_workspace}. Enter the information as shown there, then keep clicking the confirmation buttons until Cloud9 starts provisioning the IDE (Figure~\ref{fig:cloud9_ide_aws}). You may run into a warning message about being a ``root'' user, which you can safely ignore at this early stage. (If you're feeling up to it, you can implement the preferred method, called an Identity and Access Management (IAM) user, at this point. See \href{https://www.railstutorial.org/book/user_microposts#sec-image_upload_in_production}{Chapter 13 in the \href{https://www.railstutorial.org/}{\emph{Ruby on Rails Tutorial}}} for more information.)
+\item Once you've successfully gotten to the Cloud9 administrative page (Figure~\ref{fig:cloud9_page_aws}), keep clicking on ``Create environment'' until you find yourself on a page that looks like Figure~\ref{fig:cloud9_new_workspace}. Enter the information as shown there, then make sure to choose \textbf{Ubuntu Server} (\emph{not} Amazon Linux) (Figure~\ref{fig:ubuntu_server}). Finally, keep clicking the confirmation buttons until Cloud9 starts provisioning the IDE (Figure~\ref{fig:cloud9_ide_aws}). You may run into a warning message about being a ``root'' user, which you can safely ignore at this early stage. (If you're feeling up to it, you can implement the preferred method, called an Identity and Access Management (IAM) user, at this point. See \href{https://www.railstutorial.org/book/user_microposts#sec-image_upload_in_production}{Chapter 13 in the \href{https://www.railstutorial.org/}{\emph{Ruby on Rails Tutorial}}} for more information.)
 \item Finally, make sure you're running an up-to-date version of Git (Listing~\ref{code:upgrade_git}).
 \end{enumerate}
 
@@ -94,13 +94,19 @@ Here are the steps for getting started with the cloud development environment:\f
 
 \begin{figure}
 \begin{center}
+\image{images/figures/ubuntu_server.png}
+\end{center}
+\caption{Selecting \textbf{Ubuntu Server}.\label{fig:ubuntu_server}}
+\end{figure}
+
+\begin{figure}
+\begin{center}
 \image{images/figures/cloud9_ide_aws.png}
 \end{center}
 \caption{The default cloud IDE. \label{fig:cloud9_ide_aws}}
 \end{figure}
 
 Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the ``Soft Tabs'' setting to~2. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
-
 
 \begin{figure}
 \begin{center}
@@ -120,8 +126,24 @@ $ source <(curl -sL https://cdn.learnenough.com/upgrade_git)
 \end{code}
 \end{codelisting}
 
+Finally, this tutorial standardizes on Ruby 2.7.2, which you can install on the cloud IDE as follows:
 
-At this point, you're done! Although Internet access is required to use Cloud9 (so it can't be used offline), there is no alternative that combines so much power with such an easy setup.
+%= lang:console
+\begin{code}
+$ rvm install 2.7.2
+\end{code}
+
+\noindent (This uses \href{https://rvm.io}{Ruby Version Manager}, which comes preinstalled on the cloud IDE.) Once that command is finished, you can verify the Ruby version as follows:
+
+%= lang:console
+\begin{code}
+$ ruby -v
+ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]
+\end{code}
+
+\noindent (Exact version numbers may differ.)
+
+At this point, you're done! Although Internet access is required to use Cloud9, there is no alternative that combines so much power with such an easy setup.
 
 
 \section{Virtual machine} % (fold)
@@ -381,7 +403,7 @@ $ rbenv global 2.7.2
 
 \noindent At this point, it's probably a good idea to restart your shell program to make sure all the settings are properly updated.
 
-For future work, you may want to use specific versions of Ruby on a per-project basis, which can be done by creating a file called \kode{.ruby-version} in the project's root directory and including the version of Ruby to be used. (You'll also have to install it, of course, using \kode{rbenv install <version number>} as in Listing~\ref{code:ruby-install}.) See the \href{https://github.com/rbenv/rbenv}{rbenv documentation} for more information.
+For future work, you may want to use specific versions of Ruby on a per-project basis, which can be done by creating a file called \kode{.ruby-version} in the project's root directory and including the version of Ruby to be used. (If it isn't already present on your system, you'll also have to install it using \kode{rbenv install <version number>} as in Listing~\ref{code:ruby-install}.) See the \href{https://github.com/rbenv/rbenv}{rbenv documentation} for more information.
 
 Finally, when installing Ruby software via \emph{gems}, or self-contained packages of Ruby code, it's often convenient to skip the installation of the local documentation, which can take more time to install than the software itself, and in any case is more conveniently accessed online. Preventing documentation installation can be done on a case-by-case basis, but it's more convenient to make it a global default by creating a file in the home directory called \kode{.gemrc} with instructions to skip the rarely used (and time-consuming to install) Ruby documentation files, as shown in Listing~\ref{code:gemrc}.
 
