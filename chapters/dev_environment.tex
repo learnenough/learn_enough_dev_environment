@@ -70,6 +70,8 @@ There are several commercial options for running a cloud IDE, and as part of dev
 \caption{The anatomy of the cloud IDE.\label{fig:ide_anatomy}}
 \end{figure}
 
+***update with ubuntu server
+
 Here are the steps for getting started with the cloud development environment:\footnote{Due to the constantly evolving nature of sites like AWS, details may vary; use your technical sophistication (Box~\ref{aside:technical_sophistication}) to resolve any discrepancies.}
 \begin{enumerate}
 \item Because Cloud9 is part of Amazon Web Services (AWS), if you already have an AWS account you can just \href{https://aws.amazon.com/}{sign in}.\footnote{https://aws.amazon.com/} To create a new Cloud9 workspace environment, go to the \href{https://console.aws.amazon.com/}{AWS console} and type ``Cloud9'' in the search box.
@@ -107,6 +109,23 @@ Because using two spaces for indentation is a near-universal convention in Ruby,
 \end{center}
 \caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
 \end{figure}
+
+Finally, this tutorial standardizes on Ruby 2.7.2, which you can install on the cloud IDE as follows:
+
+%= lang:console
+\begin{code}
+$ rvm install 2.7.2
+\end{code}
+
+\noindent Once that command is finished, you can verify the Ruby version as follows:
+
+%= lang:console
+\begin{code}
+$ ruby -v
+ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]
+\end{code}
+
+\noindent (Exact version numbers may differ.)
 
 At this point, you're done! Although Internet access is required to use Cloud9, there is no alternative that combines so much power with such an easy setup.
 
