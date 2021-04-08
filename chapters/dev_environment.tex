@@ -25,20 +25,19 @@ For more information on these different types of software application, see \lecl
 \caption{Typical elements of a dev environment.\label{fig:dev_environment}}
 \end{figure}
 
-When setting up a development environment, there are three different possibilities we recommend, listed in increasing order of difficulty:
+When setting up a development environment, there are two main possibilities we recommend, listed in increasing order of difficulty:
 
 \begin{enumerate}
   \item Cloud \href{https://en.wikipedia.org/wiki/Integrated_development_environment}{IDE}
-  \item Virtual Machine (VM)
   \item Native OS (macOS, Linux, Windows)
 \end{enumerate}
 
-If you're relatively inexperienced, we recommend starting with the cloud IDE (Section~\ref{sec:cloud_ide}), as it has the least difficult setup process. The VM option is also relatively straightforward in principle (Section~\ref{sec:virtual_machine}), although the relevant files are large and can lead to confusing errors when trying to install, and some users may find that the user interface (UI) isn't as polished as the one on their native system.
+If you're relatively inexperienced, we recommend starting with the cloud IDE (Section~\ref{sec:cloud_ide}), as it has the least difficult setup process.
 
 \subsubsection{Native system} % (fold)
 \label{sec:native_system}
 
-While the IDE and VM options are great when you're just getting started, eventually it's important to be able to develop software on your native operating system (OS)\@. Unfortunately, setting up a fully functional native development environment can be a challenging and frustrating process\footnote{This is why it's such a bad idea to include a native dev setup at the beginning of a book like the \rortb. It's better to get started with the core material first, and tackle the native dev environment setup later. The switch over to a cloud IDE in the third edition of the \rortb\ was motivated by this realization.}---likely leaving ample opportunity to exercise your technical sophistication (Box~\ref{aside:technical_sophistication})---but it is an essential rite of passage for every aspiring technical wizard.
+While the IDE option is great when you're just getting started, eventually it's important to be able to develop software on your native operating system (OS)\@. Unfortunately, setting up a fully functional native development environment can be a challenging and frustrating process\footnote{This is why it's such a bad idea to include a native dev setup at the beginning of a book like the \rortb. It's better to get started with the core material first, and tackle the native dev environment setup later. The switch over to a cloud IDE in the third edition of the \rortb\ was motivated by this realization.}---likely leaving ample opportunity to exercise your technical sophistication (Box~\ref{aside:technical_sophistication})---but it is an essential rite of passage for every aspiring technical wizard.
 
 In order to tackle this difficult challenge, in Section~\ref{sec:native_os_setup} we'll discuss native OS setup for macOS, Linux, and Windows.
 
@@ -146,35 +145,35 @@ ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]
 At this point, you're done! Although Internet access is required to use Cloud9, there is no alternative that combines so much power with such an easy setup.
 
 
-\section{Virtual machine} % (fold)
-\label{sec:virtual_machine}
+% \section{Virtual machine} % (fold)
+% \label{sec:virtual_machine}
 
-A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In the case of the Learn Enough VM that we recommend, you can run a full Linux system right inside of macOS or Windows (or even Linux! \href{https://en.wikipedia.org/wiki/Turtles_all_the_way_down}{It's turtles all the way down} (Figure~\ref{fig:turtles}).\footnote{Image retrieved from https://upload.wikimedia.org/wikipedia/commons/4/47/River\_terrapin.jpg on 2017-01-24. Image is in the public domain.}).
+% A second option for setting up a development environment is a \emph{virtual machine}, or \emph{VM}, which is a fully functional computer system that runs inside the host system. In the case of the Learn Enough VM that we recommend, you can run a full Linux system right inside of macOS or Windows (or even Linux! \href{https://en.wikipedia.org/wiki/Turtles_all_the_way_down}{It's turtles all the way down} (Figure~\ref{fig:turtles}).\footnote{Image retrieved from https://upload.wikimedia.org/wikipedia/commons/4/47/River\_terrapin.jpg on 2017-01-24. Image is in the public domain.}).
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=5.5in]{images/figures/turtles.jpg}
-\end{center}
-\caption{It's turtles all the way down.\label{fig:turtles}}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \includegraphics[width=5.5in]{images/figures/turtles.jpg}
+% \end{center}
+% \caption{It's turtles all the way down.\label{fig:turtles}}
+% \end{figure}
 
-The virtual option we recommend is one we developed as part of \lecl, which involves installing a Linux virtual machine on your native system. The steps appear as follows:
-\begin{enumerate}
-\item Install the right version of \href{https://www.virtualbox.org/}{VirtualBox} for your system (free).
-\item Download the \href{https://softcover-static.s3.amazonaws.com/LearnEnough-v.1.4.ova}{Learn Enough Virtual Machine} (large file).
-\item Once the download is complete, double-click the resulting ``OVA'' file and follow the installation instructions.
-\item Double-click the VM itself and log in using the default user's password, which is ``\texttt{foobar!}''.
-\end{enumerate}
-(Getting all these steps to work is a good exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).)
+% The virtual option we recommend is one we developed as part of \lecl, which involves installing a Linux virtual machine on your native system. The steps appear as follows:
+% \begin{enumerate}
+% \item Install the right version of \href{https://www.virtualbox.org/}{VirtualBox} for your system (free).
+% \item Download the \href{https://softcover-static.s3.amazonaws.com/LearnEnough-v.1.4.ova}{Learn Enough Virtual Machine} (large file).
+% \item Once the download is complete, double-click the resulting ``OVA'' file and follow the installation instructions.
+% \item Double-click the VM itself and log in using the default user's password, which is ``\texttt{foobar!}''.
+% \end{enumerate}
+% (Getting all these steps to work is a good exercise in technical sophistication (Box~\ref{aside:technical_sophistication}).)
 
-The result of installing the VM is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, and Ruby. The interface might not be as familiar, fast, or as polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
+% The result of installing the VM is a Linux desktop environment (Figure~\ref{fig:virtual_machine}) that comes equipped with all the elements mentioned in Section~\ref{sec:dev_environment_options}, including a command-line terminal, the Atom text editor, Git, and Ruby. The interface might not be as familiar, fast, or as polished as your native OS, but the resulting development environment is industrial-strength and relatively easy to set up.
 
-\begin{figure}
-\begin{center}
-\image{images/figures/virtual_machine.png}
-\end{center}
-\caption{A Linux virtual machine running inside a host OS.\label{fig:virtual_machine}}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \image{images/figures/virtual_machine.png}
+% \end{center}
+% \caption{A Linux virtual machine running inside a host OS.\label{fig:virtual_machine}}
+% \end{figure}
 
 % section virtual_machine (end)
 
@@ -182,7 +181,7 @@ The result of installing the VM is a Linux desktop environment (Figure~\ref{fig:
 \section{Native OS setup} % (fold)
 \label{sec:native_os_setup}
 
-As mentioned in Section~\ref{sec:dev_environment_options}, setting up your native operating system as a development environment can be challenging, but it is an important step to take once you've reached a certain level of technical sophistication. The cloud IDE or virtual machine options are great places to start, but eventually you have to grab the bull by the horns (Figure~\ref{fig:grab_bull_by_horns})\footnote{Image retrieved from https://www.flickr.com/photos/mikey\_loves\_bcn/4354275361 on 2017-01-24. Copyright © 2010 by \href{https://www.flickr.com/photos/mikey_loves_bcn/}{Mikey V} and used under the terms of the \ccbync\ license.} and bend your native system to your will.
+As mentioned in Section~\ref{sec:dev_environment_options}, setting up your native operating system as a development environment can be challenging, but it is an important step to take once you've reached a certain level of technical sophistication. The cloud IDE option is a great place to start, but eventually you have to grab the bull by the horns (Figure~\ref{fig:grab_bull_by_horns})\footnote{Image retrieved from https://www.flickr.com/photos/mikey\_loves\_bcn/4354275361 on 2017-01-24. Copyright © 2010 by \href{https://www.flickr.com/photos/mikey_loves_bcn/}{Mikey V} and used under the terms of the \ccbync\ license.} and bend your native system to your will.
 
 \begin{figure}
 \begin{center}
@@ -479,7 +478,7 @@ At this point, you should be good to go!
 \subsection{Windows} % (fold)
 \label{sec:windows}
 
-Finally, we have native instructions for Microsoft Windows---or, rather instructions for using Unix on Windows. A couple of possibilities are to use a cloud IDE (Section~\ref{sec:cloud_ide}) or a Linux VM (Section~\ref{sec:virtual_machine}), but we've had reports of especially good results with installing Linux directly in Windows.
+Finally, we have native instructions for Microsoft Windows---or, rather instructions for using Unix on Windows. As discussed in Section~\ref{sec:cloud_ide}, one possibility is to use a cloud IDE, but we've had reports of especially good results with installing Linux directly in Windows.
 
 That's right! Believe it or not, Windows \href{https://devblogs.microsoft.com/commandline/announcing-wsl-2/}{now ships} with a working Linux \href{https://en.wikipedia.org/wiki/Kernel_(operating_system)}{kernel}, and you can install any of a number of Linux distributions by following \href{https://docs.microsoft.com/en-us/windows/wsl/install-win10}{Microsoft's own instructions}. (To those of us who remember the Linux-hating, predatory Microsoft of the late '90s/early 2000s, the idea that Windows would someday ship with native Linux support is truly incredible---\href{https://youtu.be/JmzuRXLzqKk}{\emph{dogs and cats, living together!}}---and yet \href{https://docs.microsoft.com/en-us/windows/wsl/install-win10}{here we are}.)
 
