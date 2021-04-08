@@ -74,6 +74,7 @@ Here are the steps for getting started with the cloud development environment:\f
 \item Because Cloud9 is part of Amazon Web Services (AWS), if you already have an AWS account you can just \href{https://aws.amazon.com/}{sign in}.\footnote{https://aws.amazon.com/} To create a new Cloud9 workspace environment, go to the \href{https://console.aws.amazon.com/}{AWS console} and type ``Cloud9'' in the search box.
 \item If you don't already have an AWS account, you should \href{https://www.railstutorial.org/cloud9-signup}{sign up for a free account at AWS Cloud9}.\footnote{https://www.railstutorial.org/cloud9-signup} In order to prevent abuse, AWS requires a valid credit card for signup, but the workspace is 100\% free (for a year as of this writing), and your card will not be charged. You might have to wait up to 24 hours for the account to be activated, but in my case it was ready in about ten minutes.
 \item Once you've successfully gotten to the Cloud9 administrative page (Figure~\ref{fig:cloud9_page_aws}), keep clicking on ``Create environment'' until you find yourself on a page that looks like Figure~\ref{fig:cloud9_new_workspace}. Enter the information as shown there, then make sure to choose \textbf{Ubuntu Server} (\emph{not} Amazon Linux) (Figure~\ref{fig:ubuntu_server}). Finally, keep clicking the confirmation buttons until Cloud9 starts provisioning the IDE (Figure~\ref{fig:cloud9_ide_aws}). You may run into a warning message about being a ``root'' user, which you can safely ignore at this early stage. (If you're feeling up to it, you can implement the preferred method, called an Identity and Access Management (IAM) user, at this point. See \href{https://www.railstutorial.org/book/user_microposts#sec-image_upload_in_production}{Chapter 13 in the \href{https://www.railstutorial.org/}{\emph{Ruby on Rails Tutorial}}} for more information.)
+\item Finally, make sure you're running an up-to-date version of Git (Listing~\ref{code:upgrade_git}).
 \end{enumerate}
 
 \begin{figure}
@@ -106,13 +107,23 @@ Here are the steps for getting started with the cloud development environment:\f
 
 Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the ``Soft Tabs'' setting to~2. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
 
-
 \begin{figure}
 \begin{center}
 \image{images/figures/cloud9_two_spaces_aws.png}
 \end{center}
 \caption{Setting Cloud9 to use two spaces for indentation.\label{fig:cloud9_two_spaces}}
 \end{figure}
+
+\begin{codelisting}
+\label{code:upgrade_git}
+\codecaption{Upgrading Git (if necessary).}
+%= lang:console
+\begin{code}
+$ git --version
+# If the version number isn’t greater than 2.28.0, run the following command:
+$ source <(curl -sL https://cdn.learnenough.com/upgrade_git)
+\end{code}
+\end{codelisting}
 
 Finally, this tutorial standardizes on Ruby 2.7.2, which you can install on the cloud IDE as follows:
 
@@ -421,8 +432,18 @@ $ which git
 
 %= lang:console
 \begin{code}
-$ brew install git    # only if `which git` is blank
+$ brew install git
 \end{code}
+
+Either way, you should check to make sure that the Git version number is least \kode{2.28.0}:
+
+%= lang:console
+\begin{code}
+$ git --version
+git version 2.31.1    # should be at least 2.28.0
+\end{code}
+
+\noindent If the version number isn't recent enough, you should run \kode{brew update} and then run \kode{brew upgrade git}.
 
 % subsubsection git (end)
 
@@ -433,12 +454,22 @@ $ brew install git    # only if `which git` is blank
 
 Because of Linux's highly technical origins, Linux systems typically come well-equipped with developer tools. As a result, setting up a native Linux OS as a dev environment is especially simple.
 
-Every major Linux distribution ships with a terminal program, a text editor, and Git. There are only three major steps we recommend in addition to the defaults:
+Every major Linux distribution ships with a terminal program, a text editor, and Git. There are only four major steps we recommend in addition to the defaults:
 \begin{enumerate}
   \item \href{https://atom.io/}{Download and install Atom} if you don't already have a favorite editor.
   \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv installation instructions} from the rbenv website.
   \item Install and configure Ruby as shown in Listing~\ref{code:ruby-install} and Listing~\ref{code:gemrc}.
+  \item Make sure that the Git version number is at least \kode{2.28.0}.
 \end{enumerate}
+
+The final step can be accomplished by running
+
+%= lang:console
+\begin{code}
+$ git --version
+\end{code}
+
+\noindent If the output isn't at least \kode{2.28.0}, go to ``\href{https://git-scm.com/book/en/v2/Getting-Started-Installing-Git}{Getting Started – Installing Git}'' and install the latest version for your system.
 
 At this point, you should be good to go!
 
