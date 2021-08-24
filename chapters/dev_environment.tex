@@ -1,6 +1,6 @@
 %= <span class="free"></span>
 
-\noindent One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{http://www.learnenough.com/tutorials}{main Learn Enough sequence} and the \rort\ by putting all of the relevant material in one place.
+\noindent One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{https://www.learnenough.com/tutorials}{main Learn Enough sequence} and the \rort\ by putting all of the relevant material in one place.
 
 This tutorial covers several options for setting up a dev environment, aimed at readers of varying levels of experience and sophistication. If you end up using the option shown in Section~\ref{sec:cloud_ide}, there is no minimum prerequisite for this tutorial other than general computer knowledge. If you want to follow the more challenging setup in Section~\ref{sec:native_os_setup}---which we recommend most readers tackle at some point---you should have a basic familiarity with the Unix command line (as covered in \lecl), and a familiarity with text editors and system configuration (as covered in \lete) is recommended.
 
@@ -60,7 +60,7 @@ So many things can go wrong when setting up a development environment that there
 
 The easiest dev environment option is a \emph{cloud IDE}, which is an integrated development environment in the \href{https://en.wikipedia.org/wiki/Cloud_computing}{cloud} that you access using the web browser of your choice. Although easy to activate, the resulting system is an industrial-grade development machine, not a toy. In addition, the cloud IDE automatically works cross-platform, since all you need is an ordinary web browser to use it (which every major OS provides).
 
-There are several commercial options for running a cloud IDE, and as part of developing the \rort\ we partnered with \href{http://c9.io/}{Cloud9} (part of Amazon Web Services). The resulting environment is appropriate for Ruby on Rails web development, and as a matter of course includes all the elements mentioned in Section~\ref{sec:dev_environment_options}. In particular, AWS Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}. Because each Cloud9 workspace provides a full working Linux system, it also automatically includes the Git version control system, as well as Ruby and several other programming languages.
+There are several commercial options for running a cloud IDE, and as part of developing the \rort\ we partnered with \href{https://aws.amazon.com/cloud9/}{Cloud9} (part of Amazon Web Services). The resulting environment is appropriate for Ruby on Rails web development, and as a matter of course includes all the elements mentioned in Section~\ref{sec:dev_environment_options}. In particular, AWS Cloud9 comes equipped with a command-line terminal and a text editor (including a filesystem navigator), as shown in Figure~\ref{fig:ide_anatomy}. Because each Cloud9 workspace provides a full working Linux system, it also automatically includes the Git version control system, as well as Ruby and several other programming languages.
 
 \begin{figure}
 \begin{center}
@@ -249,7 +249,7 @@ $ /bin/bash -c "$(curl -fsSL https://www.learnenough.com/homebrew.sh)"
 \end{code}
 \end{codelisting}
 
-\noindent Note that Listing~\ref{code:homebrew-install} uses a learnenough.com forwarding URL, which points to the current Homebrew installation script. This way, if Homebrew changes the URL used to host the script, we can simply update the forwarding address, and this tutorial will continue to work as written. (You can also just copy and paste the full command from the \href{http://brew.sh/}{Homebrew home page} if you like.)
+\noindent Note that Listing~\ref{code:homebrew-install} uses a learnenough.com forwarding URL, which points to the current Homebrew installation script. This way, if Homebrew changes the URL used to host the script, we can simply update the forwarding address, and this tutorial will continue to work as written. (You can also just copy and paste the full command from the \href{https://brew.sh/}{Homebrew home page} if you like.)
 
 Homebrew installs a \kode{brew} command-line command used for installing, updating, and removing packages. After the installation of Homebrew finishes, it's a good idea to run \kode{brew doctor}, which ensures that all of the directories and permissions needed by Homebrew to manage local files are correctly set up:
 
@@ -266,7 +266,7 @@ $ brew doctor
 
 As we've just seen, macOS comes with Ruby preinstalled, but we don't have any control over the exact version, and macOS doesn't natively allow us to use multiple versions of Ruby in parallel. To give us more flexibility with our development environment, we'll install \emph{rbenv}, which is a utility that manages different Ruby versions and makes sure that Ruby software packages (called \emph{gems}) get placed in the right spot for Ruby to find.
 
-Using rbenv together with the associated \emph{ruby-build} command also allows us to specify a different version of Ruby for different project repositories, which is a common task in software development.\footnote{E.g., the \href{http://docs.python-guide.org/en/latest/dev/virtualenvs/}{\emph{virtualenv}} utility accomplishes a similar task for Python projects.} For example, an older version of a program might need an older version of Ruby to run correctly. Using rbenv means we can support such an older program while still running a more up-to-date version of Ruby for our other projects.
+Using rbenv together with the associated \emph{ruby-build} command also allows us to specify a different version of Ruby for different project repositories, which is a common task in software development.\footnote{E.g., the \href{https://docs.python-guide.org/dev/virtualenvs/}{\emph{virtualenv}} utility accomplishes a similar task for Python projects.} For example, an older version of a program might need an older version of Ruby to run correctly. Using rbenv means we can support such an older program while still running a more up-to-date version of Ruby for our other projects.
 
 Installing rbenv is easy with Homebrew. We can install both rbenv and ruby-build in one step using \kode{brew install rbenv}, as shown in Listing~\ref{code:rbenv}.
 
