@@ -105,7 +105,7 @@ Here are the steps for getting started with the cloud development environment:\f
 \caption{The default cloud IDE. \label{fig:cloud9_ide_aws}}
 \end{figure}
 
-Because using two spaces for indentation is a near-universal convention in Ruby, I also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the ``Soft Tabs'' setting to~2. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
+Because using two spaces for indentation is a near-universal convention in Ruby, we also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the ``Soft Tabs'' setting to~2. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
 
 \begin{figure}
 \begin{center}
@@ -125,7 +125,16 @@ $ source <(curl -sL https://cdn.learnenough.com/upgrade_git)
 \end{code}
 \end{codelisting}
 
-Finally, this tutorial standardizes on Ruby 2.7.4, which you can install on the cloud IDE as follows:
+It's also important to use a compatible version of \href{https://nodejs.org/en/}{Node.js}:
+
+%= lang:console
+\begin{code}
+$ nvm install 16.13.0
+$ node -v
+v16.13.0
+\end{code}
+
+Finally, as of this writing the Learn Enough tutorials standardize on Ruby 2.7.4, which you can install on the cloud IDE as follows:
 
 %= lang:console
 \begin{code}
