@@ -1,6 +1,6 @@
 %= <span class="free"></span>
 
-\noindent One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{https://www.learnenough.com/tutorials}{main Learn Enough sequence} and the \rort\ by putting all of the relevant material in one place.
+\noindent One of the most important tasks for any aspiring developer---or any technical person generally---is setting up their computer as a \emph{development environment}, making it suitable for developing websites, web applications, and other software. \ledev\ is designed to complement the \href{https://www.learnenough.com/}{main Learn Enough sequence} and the \rort\ by putting all of the relevant material in one place.
 
 This tutorial covers several options for setting up a dev environment, aimed at readers of varying levels of experience and sophistication. If you end up using the option shown in Section~\ref{sec:cloud_ide}, there is no minimum prerequisite for this tutorial other than general computer knowledge. If you want to follow the more challenging setup in Section~\ref{sec:native_os_setup}---which we recommend most readers tackle at some point---you should have a basic familiarity with the Unix command line (as covered in \lecl), and a familiarity with text editors and system configuration (as covered in \lete) is recommended.
 
@@ -11,7 +11,7 @@ Ebook versions of this tutorial are available for \href{https://www.learnenough.
 
 Our focus in this tutorial is on installing or otherwise enabling the following four fundamental tools of software development (Figure~\ref{fig:dev_environment}):
 \begin{enumerate}
-  \item Command line terminal (``shell'')
+  \item Command-line terminal (``shell'')
   \item Text editor
   \item Version control (Git)
   \item Programming languages (Ruby, etc.)
@@ -105,7 +105,7 @@ Here are the steps for getting started with the cloud development environment:\f
 \caption{The default cloud IDE. \label{fig:cloud9_ide_aws}}
 \end{figure}
 
-Because using two spaces for indentation is a near-universal convention in Ruby, we also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the ``Soft Tabs'' setting to~2. (Note that this takes effect immediately; you don't need to click a ``Save'' button.)
+Because using two spaces for indentation is a near-universal convention in Ruby, we also recommend changing the editor to use two spaces instead of the default four. As shown in Figure~\ref{fig:cloud9_two_spaces}, you can do this by clicking the gear icon in the upper right and then changing the Soft Tabs setting to~2. (Note that this takes effect immediately; you don't need to click a Save button.)
 
 \begin{figure}
 \begin{center}
@@ -221,7 +221,7 @@ By the way, for the Learn Enough tutorials and the Rails Tutorial, it is general
 % subsubsection terminal_and_editor (end)
 
 
-\subsubsection{Xcode command line tools}
+\subsubsection{Xcode command-line tools}
 \label{sec:shiny_xcode}
 
 Although based on Unix,\footnote{Specifically, the \href{https://en.wikipedia.org/wiki/NeXT}{NeXT} system developed by the company Steve Jobs founded in 1985 after being ousted from Apple. The NeXT OS became the foundation for Mac OS X (later, macOS) after Apple acquired NeXT in 1997, which also led to Jobs' triumphant return as Apple CEO\@.} macOS doesn't ship with all the software necessary for a proper development environment. In order to fill this gap, macOS users should install \emph{Xcode}, a large suite of development tools and code libraries created by Apple.
@@ -230,7 +230,7 @@ Xcode used to require a 4+ GB download of installation source files, but thankfu
 
 \begin{codelisting}
 \label{code:xcode-install}
-\codecaption{Installing Xcode command line tools.}
+\codecaption{Installing Xcode command-line tools.}
 %= lang:console
 \begin{code}
 $ xcode-select --install
@@ -339,7 +339,7 @@ $ source ~/.bash_profile    # or ~/.zshrc if using Zsh
 
 Now that rbenv is set up, let's give it a non-system version of Ruby to manage. The installation process is handled entirely by rbenv, so all you have to do is tell it which version you'd like on your system by passing along the exact Ruby version number.
 
-We'll use Ruby 2.7.4 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use \href{https://www.ruby-lang.org/en/downloads/}{current or previous version} as listed at the Ruby website.
+We'll use Ruby 2.7.4 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use a \href{https://www.ruby-lang.org/en/downloads/}{current or previous version} as listed at the Ruby website.
 
 To install the desired version of Ruby using \kode{rbenv}, simply execute the command shown in Listing~\ref{code:ruby-install}. If your system ever complains that the given Ruby version isn't available, you'll have to update your system to access the latest version (Box~\ref{aside:updating_upgrading}).
 
@@ -444,7 +444,7 @@ $ which git
 $ brew install git
 \end{code}
 
-Either way, you should check to make sure that the Git version number is least \kode{2.28.0}:
+Either way, you should check to make sure that the Git version number is at least \kode{2.28.0}:
 
 %= lang:console
 \begin{code}
@@ -487,7 +487,7 @@ At this point, you should be good to go!
 \subsection{Windows} % (fold)
 \label{sec:windows}
 
-Finally, we have native instructions for Microsoft Windows---or, rather instructions for using Unix on Windows. As discussed in Section~\ref{sec:cloud_ide}, one possibility is to use a cloud IDE, but we've had reports of especially good results with installing Linux directly in Windows.
+Finally, we have native instructions for Microsoft Windows---or, rather, instructions for using Unix on Windows. As discussed in Section~\ref{sec:cloud_ide}, one possibility is to use a cloud IDE, but we've had reports of especially good results with installing Linux directly in Windows.
 
 That's right! Believe it or not, Windows \href{https://devblogs.microsoft.com/commandline/announcing-wsl-2/}{now ships} with a working Linux \href{https://en.wikipedia.org/wiki/Kernel_(operating_system)}{kernel}, and you can install any of a number of Linux distributions by following \href{https://docs.microsoft.com/en-us/windows/wsl/install-win10}{Microsoft's own instructions}. (To those of us who remember the Linux-hating, predatory Microsoft of the late '90s/early 2000s, the idea that Windows would someday ship with native Linux support is truly incredible---\href{https://youtu.be/JmzuRXLzqKk}{\emph{dogs and cats, living together!}}---and yet \href{https://docs.microsoft.com/en-us/windows/wsl/install-win10}{here we are}.)
 
