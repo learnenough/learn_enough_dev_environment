@@ -134,11 +134,13 @@ $ node -v
 v16.13.0
 \end{code}
 
-Finally, as of this writing the Learn Enough tutorials standardize on Ruby 2.7.4, which you can install on the cloud IDE as follows:
+As of this writing, the recommended version of Ruby is Ruby 3.1.1, which you can install and use on the cloud IDE as follows:
 
 %= lang:console
 \begin{code}
-$ rvm install 2.7.4
+$ rvm get stable
+$ rvm install 3.1.1
+$ rvm --default use 3.1.1
 \end{code}
 
 \noindent (This uses \href{https://rvm.io}{Ruby Version Manager}, which comes preinstalled on the cloud IDE.) Once that command is finished, you can verify the Ruby version as follows:
@@ -146,10 +148,21 @@ $ rvm install 2.7.4
 %= lang:console
 \begin{code}
 $ ruby -v
-ruby 2.7.4p191 (2021-07-07 revision a21a3b7d23) [x86_64-linux]
+ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x86_64-linux]
 \end{code}
 
-\noindent (Exact version numbers may differ.)
+\noindent (Exact version numbers may differ.) If you're using a tutorial that recommends a different version of Ruby, just replace 3.1.1 with the specified version in the commands above (e.g., 2.7.5).
+
+Finally, some users of the cloud IDE have reported having problems running into size limits, so I recommend running the command in Listing~\ref{code:resize_environment} if you're using the cloud development environment.
+
+\begin{codelisting}
+\label{code:resize_environment}
+\codecaption{Adding extra size to the cloud IDE.}
+%= lang:console
+\begin{code}
+$ source <(curl -sL https://cdn.learnenough.com/resize)
+\end{code}
+\end{codelisting}
 
 At this point, you're done! Although Internet access is required to use Cloud9, there is no alternative that combines so much power with such an easy setup.
 
