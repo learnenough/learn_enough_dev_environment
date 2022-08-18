@@ -359,7 +359,7 @@ $ source ~/.bash_profile    # or ~/.zshrc if using Zsh
 
 Now that rbenv is set up, let's give it a non-system version of Ruby to manage. The installation process is handled entirely by rbenv, so all you have to do is tell it which version you'd like on your system by passing along the exact Ruby version number.
 
-We'll use Ruby 2.7.4 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use a \href{https://www.ruby-lang.org/en/downloads/}{current or previous version} as listed at the Ruby website.
+We'll use Ruby 3.1.2 in this tutorial, which as of this writing works with a wide variety of Ruby applications, but you can also use a \href{https://www.ruby-lang.org/en/downloads/}{current or previous version} as listed at the Ruby website.
 
 To install the desired version of Ruby using \kode{rbenv}, simply execute the command shown in Listing~\ref{code:ruby-install}. If your system ever complains that the given Ruby version isn't available, you'll have to update your system to access the latest version (Box~\ref{aside:updating_upgrading}).
 
@@ -368,7 +368,7 @@ To install the desired version of Ruby using \kode{rbenv}, simply execute the co
 \codecaption{Installing a fresh copy of Ruby.}
 %= lang:console
 \begin{code}
-$ rbenv install 2.7.4
+$ rbenv install 3.1.2
 \end{code}
 \end{codelisting}
 
@@ -378,7 +378,7 @@ $ rbenv install 2.7.4
 
 %= lang:console
 \begin{code}
-ruby-build: definition not found: 2.7.4
+ruby-build: definition not found: 3.1.2
 
 See all available versions with `rbenv install --list'.
 
@@ -426,7 +426,7 @@ For this guide, we are also going to set the Ruby version from Listing~\ref{code
 
 %= lang:console
 \begin{code}
-$ rbenv global 2.7.4
+$ rbenv global 3.1.2
 \end{code}
 
 \noindent At this point, it's probably a good idea to restart your shell program to make sure all the settings are properly updated.
