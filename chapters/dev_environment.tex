@@ -153,6 +153,21 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 
 \noindent (Exact version numbers may differ.) If you're using a tutorial that recommends a different version of Ruby, just replace 3.1.2 with the specified version in the commands above (e.g., 2.7.5).
 
+To install Python, use the commands shown in Listing~\ref{code:python-install}.
+
+\begin{codelisting}
+\label{code:python-install}
+\codecaption{Installing Python.}
+%= lang:console
+\begin{code}
+$ sudo add-apt-repository -y ppa:deadsnakes/ppa
+$ sudo apt-get install -y python3.10
+$ sudo ln -sf /usr/bin/python3.10 /usr/bin/python3
+\end{code}
+\end{codelisting}
+
+\noindent This installs Python version 3.10 and \href{https://en.wikipedia.org/wiki/Symbolic_link}{symlinks} it to \kode{python3} for convenience.
+
 Cloud9 comes with several text editors, such as \kode{nano} and \kode{vim}, and it's also convenient to add the \kode{c9} command to open files using the native Cloud9 visual editor:
 
 %= lang:console
@@ -234,7 +249,7 @@ The steps in this section constitute more than just a minimal system; you can ac
 
 Although macOS comes with a native terminal program, we recommend installing \href{https://www.iterm2.com/downloads.html}{iTerm}, which includes \href{https://www.iterm2.com/features.html}{various enhancements} that make it better than the default for developers and other technical users.
 
-We also recommend installing a programmer's text editor. There are lots of excellent choices, but the \href{https://atom.io/}{Atom editor} (covered in \lete) is a good place to start if you don't already have a favorite.
+We also recommend installing a programmer's text editor. There are lots of excellent choices, but the \href{https://www.sublimetext.com/}{Sublime Text} (covered in \lete) is a good place to start if you don't already have a favorite.
 
 By the way, for the Learn Enough tutorials and the Rails Tutorial, it is generally recommended that you use the Bourne-again shell (Bash) rather than the default Z shell (although it often doesn't matter). To switch your shell to Bash, run \kode{chsh -s /bin/bash} at the command line, enter your password, and restart your terminal program. Any resulting alert messages are safe to ignore. See the Learn Enough blog post ``\href{https://news.learnenough.com/macos-bash-zshell}{Using Z Shell on Macs with the Learn Enough Tutorials}'' for more information.
 
@@ -447,6 +462,16 @@ $ echo "gem: --no-document" >> ~/.gemrc
 
 \noindent With that configuration, any uses of \kode{gem install <gem name>} to install Ruby gems will automatically be svelte, streamlined, and documentation-free.
 
+\subsubsection{Python}
+\label{sec:python_macos}
+
+To install Python using Homebrew, use the following command:
+
+%= lang:console
+\begin{code}
+$ brew install python@3.10
+\end{code}
+
 \subsubsection{Git} % (fold)
 \label{sec:git}
 
@@ -485,9 +510,10 @@ Because of Linux's highly technical origins, Linux systems typically come well-e
 
 Every major Linux distribution ships with a terminal program, a text editor, and Git. There are only four major steps we recommend in addition to the defaults:
 \begin{enumerate}
-  \item \href{https://atom.io/}{Download and install Atom} if you don't already have a favorite editor.
+  \item \href{https://www.sublimetext.com/}{Download and install Sublime Text} if you don't already have a favorite editor. Sublime Text is a commercial product but can be used indefinitely for free in evaluation mode.
   \item Follow the \href{https://github.com/rbenv/rbenv#installation}{rbenv installation instructions} from the rbenv website.
   \item Install and configure Ruby as shown in Listing~\ref{code:ruby-install} and Listing~\ref{code:gemrc}.
+  \item Install Python as shown in Listing~\ref{code:python-install}. Depending on your exact system, you may have to use a package manager other than \kode{apt}; in this case, use your technical sophistication (Box~\ref{aside:technical_sophistication}) to figure out what to do.
   \item Make sure that the Git version number is at least \kode{2.28.0}.
 \end{enumerate}
 
