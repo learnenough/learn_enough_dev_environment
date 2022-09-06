@@ -439,6 +439,18 @@ To install Python using Homebrew, use the following command:
 $ brew install python@3.10
 \end{code}
 
+\noindent This adds \kode{python3} and \kode{pip3} executables (the latter is a Python package manager):
+
+%= lang:console
+\begin{code}
+$ which python3
+/opt/homebrew/bin/python3
+$ which pip3
+/opt/homebrew/bin/pip3
+\end{code}
+
+\noindent Many online instructions require you to execute \kode{python} or \kode{pip}; in such cases, you should add the trailing~\kode{3} in order to obtain the expected result.
+
 \subsubsection{Git} % (fold)
 \label{sec:git}
 
